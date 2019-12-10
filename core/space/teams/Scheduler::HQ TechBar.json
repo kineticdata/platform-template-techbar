@@ -1,0 +1,13 @@
+{
+  "attributes": [
+    {
+      "name": "Default Queue Filter",
+      "values": [
+        "{\"name\":\"HQ TechBar\",\"groupBy\":\"Scheduled At\",\"status\":[\"Open\"],\"teams\":[],\"assignments\":{\"mine\":true,\"teammates\":true,\"unassigned\":true},\"dateRange\":{\"timeline\":\"createdAt\",\"preset\":\"\",\"custom\":false,\"start\":\"\",\"end\":\"\"},\"createdByMe\":false}"
+      ]
+    }
+  ],
+  "description": null,
+  "name": "Scheduler::HQ TechBar",
+  "slug": "c54c7bb1a0725134dac968c7d8daa0f3"
+}

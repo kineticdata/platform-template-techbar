@@ -1,0 +1,762 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Submission Workflow",
+      "values": [
+        "Submitted"
+      ]
+    }
+  ],
+  "bridgedResources": [
+    {
+      "model": "Datastore - Scheduler Config",
+      "name": "Issue Types",
+      "order": [
+
+      ],
+      "parameters": [
+        {
+          "mapping": "${values('Scheduler Id')}",
+          "name": "Scheduler Id"
+        }
+      ],
+      "qualification": "Active by Scheduler Id",
+      "status": "Active"
+    }
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "name": "Walk-In",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Questions",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Account Typeahead",
+              "text": "<label class=\"field-label\">${translate('Full Name')}</label>\n<div id=\"person-select\"></div>\n",
+              "visible": "!form('review')",
+              "renderAttributes": {
+                "class": "form-group required"
+              }
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "System Fields Do Not Delete",
+              "title": null,
+              "visible": "!!values('Requested For') || form('review')",
+              "omitWhenHidden": false,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "field",
+                  "name": "Requested For Display Name",
+                  "label": "Full Name",
+                  "key": "f2",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": "form('review')",
+                  "enabled": false,
+                  "required": true,
+                  "requiredMessage": "Full Name is required",
+                  "omitWhenHidden": false,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+                    "data-error-anchor": "#person-select"
+                  },
+                  "dataType": "string",
+                  "renderType": "text",
+                  "rows": 1
+                },
+                {
+                  "type": "field",
+                  "name": "Requested For",
+                  "label": "Email",
+                  "key": "f1",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": "!form('review') || form('review') && values('Requested For')",
+                  "enabled": false,
+                  "required": "!!values('Requested For')",
+                  "requiredMessage": "",
+                  "omitWhenHidden": false,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+
+                  },
+                  "dataType": "string",
+                  "renderType": "text",
+                  "rows": 1
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "User Details",
+              "title": null,
+              "visible": "!values('Requested For')",
+              "omitWhenHidden": true,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "field",
+                  "name": "Email",
+                  "label": "Email",
+                  "key": "f15",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": true,
+                  "enabled": true,
+                  "required": "!values('Requested For')",
+                  "requiredMessage": null,
+                  "omitWhenHidden": null,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+
+                  },
+                  "dataType": "string",
+                  "renderType": "text",
+                  "rows": 1
+                },
+                {
+                  "type": "field",
+                  "name": "Phone Number",
+                  "label": "Phone Number",
+                  "key": "f16",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": true,
+                  "enabled": true,
+                  "required": false,
+                  "requiredMessage": null,
+                  "omitWhenHidden": null,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+
+                  },
+                  "dataType": "string",
+                  "renderType": "text",
+                  "rows": 1
+                },
+                {
+                  "type": "field",
+                  "name": "Create an Account",
+                  "label": "",
+                  "key": "f17",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": false,
+                  "enabled": true,
+                  "required": false,
+                  "requiredMessage": null,
+                  "omitWhenHidden": true,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+
+                  },
+                  "dataType": "json",
+                  "renderType": "checkbox",
+                  "choicesResourceName": null,
+                  "choicesRunIf": null,
+                  "choices": [
+
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Type of Issue",
+              "title": null,
+              "visible": false,
+              "omitWhenHidden": false,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "content",
+                  "renderType": "html",
+                  "name": "Type of Issue Container",
+                  "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"issue-container\"></div>",
+                  "visible": true,
+                  "renderAttributes": {
+
+                  }
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Summary",
+              "label": "Summary",
+              "key": "f11",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": true,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Details",
+              "label": "Details",
+              "key": "f12",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 3
+            },
+            {
+              "type": "field",
+              "name": "Date",
+              "label": "Date",
+              "key": "f18",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": false,
+              "enabled": false,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": false,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "date"
+            },
+            {
+              "type": "field",
+              "name": "Time",
+              "label": "Time",
+              "key": "f19",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": false,
+              "enabled": false,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": false,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "time"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Footer",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "text-right"
+          },
+          "elements": [
+            {
+              "type": "button",
+              "label": "Check In",
+              "name": "Submit Button",
+              "visible": true,
+              "enabled": true,
+              "renderType": "submit-page",
+              "renderAttributes": {
+
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden System Fields Do Not Delete",
+          "title": null,
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "Requested By",
+              "label": "Requested By",
+              "key": "f3",
+              "defaultValue": "${identity('username')}",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Requested By Display Name",
+              "label": "Requested By Display Name",
+              "key": "f4",
+              "defaultValue": "${identity('displayName')}",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Discussion Id",
+              "label": "Discussion Id",
+              "key": "f5",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Observing Teams",
+              "label": "Observing Teams",
+              "key": "f6",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Observing Individuals",
+              "label": "Observing Individuals",
+              "key": "f7",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Status",
+              "label": "Status",
+              "key": "f8",
+              "defaultValue": "Checked In",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Scheduler Id",
+              "label": "Scheduler Id",
+              "key": "f9",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": true,
+              "requiredMessage": "Tech Bar could not be found. Please consult an administrator",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Event Type",
+              "label": "Event Type",
+              "key": "f10",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": "!!values('Scheduler Id')",
+              "requiredMessage": "You must select a Type of Issue.",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Event Duration",
+              "label": "Event Duration",
+              "key": "f23",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Event Duration Actual",
+              "label": "Event Duration Actual",
+              "key": "f20",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Wait Time",
+              "label": "Wait Time",
+              "key": "f21",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Start Work Time",
+              "label": "Start Work Time",
+              "key": "f22",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Load Issue Types",
+          "type": "Load",
+          "action": "Custom",
+          "code": "if (resource.length > 0) {\n  // Populate container with radio buttons\n  $(\"#issue-container\")\n    .empty()\n    .append(\n      $(\"<label>\", { class: \"field-label\" }).text(K.translate('Type of Issue')),\n      $.map(resource, function (issueType, index) {\n        return $(\"<label>\", {\n          for: \"issue-type-\" + index,\n        }).append(\n          $(\"<input>\", {\n            type: \"radio\",\n            id: \"issue-type-\" + index,\n            name: \"issue-types\",\n            value: issueType[\"Event Type\"],\n            checked: K(\"field[Event Type]\").value() === issueType[\"Event Type\"],\n            disabled: K('form').reviewMode()\n          }).on(\"change\", function (e) {\n            K(\"field[Event Type]\").value(e.target.value);\n          }),\n          K.translate(issueType[\"Event Type\"])\n        );\n      })\n    );\n\n  if (resource.length === 1) {\n    $(\"#issue-container input\").prop(\"checked\", true).trigger('change');\n  } else if (resource.length > 1) {\n    K('section[Type of Issue]').show();\n  }\n} else {\n  // Populate container with error message, disable save button\n  $( '#issue-container' ).empty().append(\n    $(\"<p>\").append($(\"<strong>\").text(\n      K.translate(\"No Issue Types found for this Tech Bar. Please consult an administrator.\")\n    ))\n  );\n}",
+          "bridgedResourceName": "Issue Types"
+        },
+        {
+          "name": "Load Account Typeahead",
+          "type": "Load",
+          "action": "Custom",
+          "code": "bundle.helpers.peopleSelect({\n  container: K(\"form\").find(\"#person-select\")[0],\n  multiple: false,\n  minLength: 3,\n  emptyLabel: K.translate('Account not found.'),\n  emails: true,\n  onChange: function(user){\n    if (user) {\n      K('field[Requested For]').value(user.username);\n      K('field[Requested For Display Name]').value(user.displayName);\n    } else {\n      K('field[Requested For]').value('');\n    }\n  },\n  onInputChange: function(value){\n  \tK('field[Requested For Display Name]').value(value);\n\t}\n});",
+          "runIf": "!form('review')"
+        },
+        {
+          "name": "Set Default Date and Time",
+          "type": "Load",
+          "action": "Custom",
+          "code": "var now = moment();\nif (!K('field[Date]').value()) {\n\tK('field[Date]').value(now.format('YYYY-MM-DD'));\n}\nif (!K('field[Time]').value()) {\n\tK('field[Time]').value(now.format('HH:mm'));\n}"
+        },
+        {
+          "name": "Disable submit button to prevent multiple submits",
+          "type": "Submit",
+          "action": "Custom",
+          "code": "var valid = K('form').validate();\nif ( $.isEmptyObject(valid) ) {\n  K('button[Submit Button]').disable();\n}\n"
+        }
+      ],
+      "name": "Walk-In",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+    {
+      "endpoint": "Display",
+      "name": "Tech Bar Display"
+    },
+    {
+      "endpoint": "Modification",
+      "name": "Admins"
+    },
+    {
+      "endpoint": "Submission Access",
+      "name": "Tech Bar Display - Tech Bar Admins - Specific Tech Bar Managers - Specific Tech Bar Agents"
+    },
+    {
+      "endpoint": "Submission Modification",
+      "name": "Admins"
+    }
+  ],
+  "slug": "walk-in",
+  "status": "Active",
+  "submissionLabelExpression": "${values('Event Type')} ${values('Date')} ${values('Time')}",
+  "type": "Service"
+}

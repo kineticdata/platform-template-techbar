@@ -1,0 +1,12 @@
+[
+  {
+    "allowsMultiple": false,
+    "description": "Defines whether a user can/must identify themselves while leaving feedback. Options: Required, Optional, Hidden. Default: Hidden",
+    "name": "Feedback Identity"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "Defines which workflow type should be executed for each type of action. All values should be prefixed with an action (Submitted, Created, Updated, Deleted) Workflow types are (Standard, True, False, or a custom process name) This attribute can be overridden by a form's attribute Example (Submitted - False | Submitted - True | Submitted - My Custom Process)",
+    "name": "Submission Workflow"
+  }
+]

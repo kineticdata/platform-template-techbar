@@ -1,0 +1,992 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Submission Workflow",
+      "values": [
+        "Submitted",
+        "Updated"
+      ]
+    }
+  ],
+  "bridgedResources": [
+    {
+      "model": "Datastore - Scheduler Config",
+      "name": "Issue Types",
+      "order": [
+        {
+          "attribute": "Event Type",
+          "direction": "asc"
+        }
+      ],
+      "parameters": [
+        {
+          "mapping": "${values('Scheduler Id')}",
+          "name": "Scheduler Id"
+        }
+      ],
+      "qualification": "Active by Scheduler Id",
+      "status": "Active"
+    },
+    {
+      "model": "Datastore - Scheduler",
+      "name": "Tech Bars",
+      "order": [
+        {
+          "attribute": "Name",
+          "direction": "asc"
+        }
+      ],
+      "parameters": [
+        {
+          "mapping": "TechBar",
+          "name": "Type"
+        }
+      ],
+      "qualification": "Active by Type",
+      "status": "Active"
+    }
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": "",
+  "description": "",
+  "name": "Appointment",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "content",
+          "renderType": "html",
+          "name": "Requested For Info for Other Viewers",
+          "text": "<div id=\"requsted-for-info\" class=\"alert alert-info\"></div>",
+          "visible": "identity('username') !== values('Requested For') && form('review')",
+          "renderAttributes": {
+
+          }
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Schedule For",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+
+          },
+          "elements": [
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Toggle Buttons",
+              "title": null,
+              "visible": true,
+              "omitWhenHidden": null,
+              "renderAttributes": {
+                "class": "text-right"
+              },
+              "elements": [
+                {
+                  "type": "button",
+                  "label": "Schedule For Someone Else",
+                  "name": "Toggle Schedule For Option On",
+                  "visible": "values('Schedule For Someone Else').length == 0",
+                  "enabled": true,
+                  "renderType": "custom",
+                  "renderAttributes": {
+                    "class": "btn-link"
+                  },
+                  "events": [
+                    {
+                      "name": "Toggle Schedule For Option",
+                      "type": "Click",
+                      "action": "Custom",
+                      "code": "K('field[Schedule For Someone Else]').value(['Yes']);"
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "label": "Schedule For Myself",
+                  "name": "Toggle Schedule For Option Off",
+                  "visible": "values('Schedule For Someone Else').length > 0",
+                  "enabled": true,
+                  "renderType": "custom",
+                  "renderAttributes": {
+                    "class": "btn-link"
+                  },
+                  "events": [
+                    {
+                      "name": "Toggle Schedule For Option",
+                      "type": "Click",
+                      "action": "Custom",
+                      "code": "K('field[Schedule For Someone Else]').value([]);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Schedule For Someone Else",
+              "label": "",
+              "key": "f25",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": false,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": true,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+                {
+                  "name": "Toggle Requested For Search",
+                  "type": "Change",
+                  "action": "Custom",
+                  "code": "if (event.newValue.length > 0) {\n  bundle.helpers.peopleSelect({\n    container: K(\"form\").find(\"#person-select\")[0],\n    multiple: false,\n    minLength: 3,\n    emptyLabel: K.translate('Account not found.'),\n    onChange: function(user){\n      if (user) {\n        K('field[Requested For]').value(user.username);\n        K('field[Requested For Display Name]').value(user.displayName);\n      } else {\n        K('field[Requested For]').value('');\n        K('field[Requested For Display Name]').value('');\n      }\n    }\n  });\n} else {\n  bundle.helpers.peopleSelect.remove(K(\"form\").find(\"#person-select\")[0]);\n}"
+                },
+                {
+                  "name": "Toggle Requested For Fields",
+                  "type": "Change",
+                  "action": "Set Fields",
+                  "mappings": [
+                    {
+                      "field": "Requested For",
+                      "value": "${values('Schedule For Someone Else').length > 0 ? '' : identity('username')}",
+                      "visible": null
+                    },
+                    {
+                      "field": "Requested For Display Name",
+                      "value": "${values('Schedule For Someone Else').length > 0 ? '' : identity('displayName')}",
+                      "visible": null
+                    }
+                  ]
+                }
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Schedule For Someone Else",
+                  "value": "Yes"
+                }
+              ]
+            },
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Schedule For Typeahead",
+              "text": "<label class=\"field-label\">${translate('Scheduling Appointment For User')}</label>\n<div id=\"person-select\"></div>\n<style>\n  #person-select {\n    margin-bottom: 2rem;\n    padding-bottom: 2rem;\n    border-bottom: 1px solid #d8d8d8;\n  }\n</style>",
+              "visible": "values('Schedule For Someone Else').length > 0",
+              "renderAttributes": {
+                "class": "form-group required"
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Questions",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+
+          },
+          "elements": [
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Tech Bars",
+              "title": null,
+              "visible": false,
+              "omitWhenHidden": true,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "content",
+                  "renderType": "html",
+                  "name": "Tech Bar Container",
+                  "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"tech-bar-container\"></div>",
+                  "visible": true,
+                  "renderAttributes": {
+
+                  }
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Type of Issue",
+              "title": null,
+              "visible": false,
+              "omitWhenHidden": true,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "content",
+                  "renderType": "html",
+                  "name": "Type of Issue Container",
+                  "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"issue-container\"></div>",
+                  "visible": true,
+                  "renderAttributes": {
+
+                  }
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Details",
+              "title": null,
+              "visible": true,
+              "omitWhenHidden": null,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "field",
+                  "name": "Summary",
+                  "label": "Summary of Issue",
+                  "key": "f16",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": true,
+                  "enabled": true,
+                  "required": true,
+                  "requiredMessage": null,
+                  "omitWhenHidden": null,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+
+                  },
+                  "dataType": "string",
+                  "renderType": "text",
+                  "rows": 1
+                },
+                {
+                  "type": "field",
+                  "name": "Details",
+                  "label": "Details",
+                  "key": "f17",
+                  "defaultValue": null,
+                  "defaultResourceName": null,
+                  "visible": true,
+                  "enabled": true,
+                  "required": false,
+                  "requiredMessage": null,
+                  "omitWhenHidden": null,
+                  "pattern": null,
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "renderAttributes": {
+
+                  },
+                  "dataType": "string",
+                  "renderType": "text",
+                  "rows": 3
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Scheduler Widget",
+              "title": null,
+              "visible": false,
+              "omitWhenHidden": false,
+              "renderAttributes": {
+
+              },
+              "elements": [
+                {
+                  "type": "content",
+                  "renderType": "html",
+                  "name": "Scheduler Widget Container",
+                  "text": "<div id=\"scheduler-widget-container\">\n  <div class=\"form-group required\">\n    <label class=\"field-label\">Date and Time</label>\n    <div class=\"cards__wrapper cards__wrapper--appt pb-0\">\n      <div class=\"card card--long card--appt\">\n        <i class=\"fa fa-calendar fa-fw card-icon\" style=\"background: rgb(255, 74, 94);\"></i>\n        <div class=\"card-body\">\n          <span class=\"card-subtitle\"><em>${translate('Please select a Type of Issue to pick a date and time.')}</em></span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+                  "visible": true,
+                  "renderAttributes": {
+
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Footer",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "text-right"
+          },
+          "elements": [
+            {
+              "type": "button",
+              "label": "Create Appointment",
+              "name": "Submit",
+              "visible": true,
+              "enabled": true,
+              "renderType": "submit-page",
+              "renderAttributes": {
+
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden System Fields Do Not Delete",
+          "title": "Hidden System Fields Do Not Delete",
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "Requested For",
+              "label": "Requested For",
+              "key": "f10",
+              "defaultValue": "${identity('username')}",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": true,
+              "requiredMessage": "You must select a user for whom you are scheduling an appointment.",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Requested For Display Name",
+              "label": "Requested For Display Name",
+              "key": "f11",
+              "defaultValue": "${identity('displayName')}",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Requested By",
+              "label": "Requested By",
+              "key": "f12",
+              "defaultValue": "${identity('username')}",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Requested By Display Name",
+              "label": "Requested By Display Name",
+              "key": "f13",
+              "defaultValue": "${identity('displayName')}",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Discussion Id",
+              "label": "Discussion Id",
+              "key": "f7",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Observing Teams",
+              "label": "Observing Teams",
+              "key": "f8",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Observing Individuals",
+              "label": "Observing Individuals",
+              "key": "f9",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Status",
+              "label": "Status",
+              "key": "f6",
+              "defaultValue": "Scheduled",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Scheduler Id",
+              "label": "Scheduler Id",
+              "key": "f1",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": true,
+              "requiredMessage": "You must select a Tech Bar.",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+                {
+                  "name": "Get Types",
+                  "type": "Change",
+                  "action": "Custom",
+                  "code": "K('field[Event Type]').value('');\nbundle.ext.forms[K('form').slug()].getIssueTypes();"
+                }
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Event Type",
+              "label": "Event Type",
+              "key": "f18",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": "!!values('Scheduler Id')",
+              "requiredMessage": "You must select a Type of Issue.",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+                {
+                  "name": "Get Appointment Times",
+                  "type": "Change",
+                  "action": "Custom",
+                  "code": "bundle.ext.forms[K('form').slug()].schedulerWidget();\n"
+                }
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Scheduled Event Id",
+              "label": "Scheduled Event Id",
+              "key": "f2",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": "values('Status') !== \"Cancelled\"",
+              "requiredMessage": "You must select a Date and Time for your appointment.",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Event Date",
+              "label": "Event Date",
+              "key": "f3",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "date"
+            },
+            {
+              "type": "field",
+              "name": "Event Time",
+              "label": "Event Time",
+              "key": "f4",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "time"
+            },
+            {
+              "type": "field",
+              "name": "Event Duration",
+              "label": "Event Duration",
+              "key": "f5",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Event Duration Actual",
+              "label": "Event Duration Actual",
+              "key": "f19",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Check-in Time",
+              "label": "Check-in Time",
+              "key": "f22",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Wait Time",
+              "label": null,
+              "key": "f21",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Start Work Time",
+              "label": "Start Work Time",
+              "key": "f20",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Same Day Appointment",
+              "label": "Same Day Appointment",
+              "key": "f23",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Cancellation Reason",
+              "label": "Cancellation Reason",
+              "key": "f28",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Cancellation Reason Other",
+              "label": "Cancellation Reason Other",
+              "key": "f29",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Load Custom Page Code",
+          "type": "Load",
+          "action": "Custom",
+          "code": "var formSlug = K('form').slug();\n// Confirm bundle.ext exists, or create it\nbundle.ext = bundle.ext || {};\n// Confirm bundle.ext.forms.<form_slug> exists, or create it\nbundle.ext.forms = bundle.ext.forms || {};\nbundle.ext.forms[formSlug] = bundle.ext.forms[formSlug] || {};\n// Create variable to custom appointment\nvar appointment = bundle.ext.forms[formSlug];\n\nappointment.getTechBars = function(id) {\n  K('bridgedResource[Tech Bars]').load({\n    success: function(bridgedData) {\n      var techBars = !id\n        ? bridgedData\n        : $.grep(bridgedData, function(techBar) {\n            return techBar['Scheduler Id'] === id;\n          });\n      if (techBars.length > 0) {\n        // Populate container with radio buttons\n        $('#tech-bar-container')\n          .empty()\n          .append(\n            $('<label>', { class: 'field-label' }).text(\n              K.translate('Tech Bar')\n            ),\n            $.map(techBars, function(techBar, index) {\n              return $('<label>', { for: 'tech-bar-' + index }).append(\n                $('<input>', {\n                  type: 'radio',\n                  id: 'tech-bar-' + index,\n                  name: 'tech-bars',\n                  value: techBar['Scheduler Id'],\n                  checked: id === techBar['Scheduler Id'],\n                  disabled: K('form').reviewMode()\n                }).on('change', function(e) {\n                  K('field[Scheduler Id]').value(e.target.value);\n                }),\n                K.translate(techBar['Name'])\n              );\n            })\n          );\n\n        if (techBars.length === 1) {\n          $('#tech-bar-container input')\n            .prop('checked', true)\n            .trigger('change');\n        } else if (techBars.length > 1) {\n          // Show Tech Bar Container\n          K('section[Tech Bars]').show();\n        }\n      } else {\n        // Populate container with error message, disable save button\n        $('#tech-bar-container')\n          .empty()\n          .append(\n            $('<p>').append(\n              $('<strong>').text(\n                id\n                  ? K.translate('The selected Tech Bar could not be found. Please consult an administrator.')\n                  : K.translate('No Tech Bars found. Please consult an administrator.')\n              )\n            )\n          );\n        K('section[Tech Bars]').show();\n      }\n    }\n  });\n};\n\nappointment.getIssueTypes = function(name) {\n  K('bridgedResource[Issue Types]').load({\n    success: function(issueTypes) {\n      if (issueTypes.length > 0) {\n        // Populate container with radio buttons\n        $('#issue-container')\n          .empty()\n          .append(\n            $('<label>', { class: 'field-label' }).text(\n              K.translate('Type of Issue')\n            ),\n            $.map(issueTypes, function(issueType, index) {\n              return $('<label>', { for: 'issue-type-' + index }).append(\n                $('<input>', {\n                  type: 'radio',\n                  id: 'issue-type-' + index,\n                  name: 'issue-types',\n                  value: issueType['Event Type'],\n                  checked: name === issueType['Event Type'],\n                  disabled: K('form').reviewMode()\n                }).on('change', function(e) {\n                  K('field[Event Type]').value(e.target.value);\n                }),\n                K.translate(issueType['Event Type'])\n              );\n            })\n          );\n\n        if (!name && issueTypes.length === 1) {\n          $('#issue-container input')\n            .prop('checked', true)\n            .trigger('change');\n        } else if (issueTypes.length > 1) {\n          // Show Issue Container\n          K('section[Type of Issue]').show();\n        }\n        K('section[Scheduler Widget]').show();\n      } else {\n        // Populate container with error message, disable save button\n        $('#issue-container')\n          .empty()\n          .append(\n            $('<p>').append(\n              $('<strong>').text(\n                name\n                  ? K.translate('The selected Issue Type could not be found. Please consult an administrator.')\n                  : K.translate('No Issue Types found for the selected Tech Bar. Please consult an administrator.')\n              )\n            )\n          );\n        K('section[Type of Issue]').show();\n      }\n    }\n  });\n};\n\nappointment.schedulerWidget = function(performSubmit) {\n  // Call the Scheduler Widget\n  bundle.helpers.schedulerWidget(\n    K('form').find('#scheduler-widget-container')[0],\n    {\n      schedulerId: K('field[Scheduler Id]').value(),\n      eventType: K('field[Event Type]').value(),\n      scheduledEventId: K('field[Scheduled Event Id]').value(),\n      canReschedule: K('field[Status]').value() === 'Scheduled',\n      canCancel: K('field[Status]').value() === 'Scheduled',\n      performSubmit: typeof performSubmit === 'function' ? performSubmit : null\n    },\n    K('form'),\n    {\n      scheduledEventId: 'Scheduled Event Id',\n      eventDate: 'Event Date',\n      eventTime: 'Event Time',\n      duration: 'Event Duration'\n    }\n  );\n};\n\n// Fetch Tech Bars, pass id if preset to only show that Tech Bar\nappointment.getTechBars(K('field[Scheduler Id]').value());\nif (K('field[Scheduler Id]').value()) {\n  appointment.getIssueTypes(K('field[Event Type]').value());\n}\nappointment.schedulerWidget();\n\n// Populate Request For Display Element\nvar contactDetails =\n  K.translate('Appointment for:') + ' <b>' +\n  K('field[Requested For Display Name]').value() +\n  '</b>';\nif (contactDetails === null) {\n  contactDetails =\n    K.translate('Appointment for user:') + ' <b>' + K('field[Requested For]').value() + '</b>';\n}\n$('#requsted-for-info').html(contactDetails);\n",
+          "bridgedResourceName": "Issue Types"
+        },
+        {
+          "name": "Submit Scheduled Event",
+          "type": "Submit",
+          "action": "Custom",
+          "code": "action.stop();\nbundle.ext.forms[K('form').slug()].schedulerWidget(action.continue);",
+          "runIf": "!!values('Scheduler Id') && !!values('Event Type')"
+        }
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+    {
+      "endpoint": "Display",
+      "name": "Everyone"
+    },
+    {
+      "endpoint": "Modification",
+      "name": "Admins"
+    },
+    {
+      "endpoint": "Submission Access",
+      "name": "Tech Bar Display - Tech Bar Admins - Specific Tech Bar Managers - Specific Tech Bar Agents - Requester"
+    },
+    {
+      "endpoint": "Submission Modification",
+      "name": "Requester"
+    }
+  ],
+  "slug": "appointment",
+  "status": "Active",
+  "submissionLabelExpression": "${values('Event Type')} ${values('Event Date')} ${values('Event Time')}",
+  "type": "Service"
+}

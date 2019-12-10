@@ -1,0 +1,214 @@
+{
+  "afterLogoutPath": "",
+  "attributes": [
+    {
+      "name": "Admin Kapp Slug",
+      "values": [
+        "admin"
+      ]
+    },
+    {
+      "name": "Alerts Form Slug",
+      "values": [
+        "alerts"
+      ]
+    },
+    {
+      "name": "Approval Form Slug",
+      "values": [
+        "approval"
+      ]
+    },
+    {
+      "name": "Catalog Kapp Slug",
+      "values": [
+        "services"
+      ]
+    },
+    {
+      "name": "Change Manager Form Slug",
+      "values": [
+        "change-manager-request"
+      ]
+    },
+    {
+      "name": "Default Kapp Display",
+      "values": [
+        "tech-bar"
+      ]
+    },
+    {
+      "name": "Disable Self Sign Up",
+      "values": [
+        "false"
+      ]
+    },
+    {
+      "name": "Discussion Server Url",
+      "values": [
+        "Not used with Kinetic Discussions"
+      ]
+    },
+    {
+      "name": "Feedback Form Slug",
+      "values": [
+        "feedback"
+      ]
+    },
+    {
+      "name": "Help Form Slug",
+      "values": [
+        "help"
+      ]
+    },
+    {
+      "name": "Hidden Users Regex",
+      "values": [
+        ".*@kinops.io$"
+      ]
+    },
+    {
+      "name": "Invite Others Form Slug",
+      "values": [
+        "invite-users"
+      ]
+    },
+    {
+      "name": "Libraries Bundle Path",
+      "values": [
+        "space"
+      ]
+    },
+    {
+      "name": "Queue Kapp Slug",
+      "values": [
+        "queue"
+      ]
+    },
+    {
+      "name": "Request Alert Form Slug",
+      "values": [
+        "system-alert-request"
+      ]
+    },
+    {
+      "name": "Service Days Due",
+      "values": [
+        "7"
+      ]
+    },
+    {
+      "name": "Shared Workflow Engine",
+      "values": [
+        "False"
+      ]
+    },
+    {
+      "name": "Task Assignee Team",
+      "values": [
+        "Default"
+      ]
+    },
+    {
+      "name": "Task Form Slug",
+      "values": [
+        "work-order"
+      ]
+    },
+    {
+      "name": "Task Server Space Slug",
+      "values": [
+        "0743557"
+      ]
+    },
+    {
+      "name": "Task Source Name",
+      "values": [
+        "Kinetic Request CE"
+      ]
+    },
+    {
+      "name": "Tech Bar Kapp Slug",
+      "values": [
+        "tech-bar"
+      ]
+    },
+    {
+      "name": "Web Server Url",
+      "values": [
+        "https://0743557.kinops.io"
+      ]
+    }
+  ],
+  "bundlePath": "",
+  "customTranslationContexts": [
+
+  ],
+  "defaultDatastoreFormConfirmationPage": null,
+  "defaultDatastoreFormDisplayPage": null,
+  "defaultLocale": "en",
+  "defaultTimezone": "America/Chicago",
+  "displayType": "Single Page App",
+  "displayValue": "spa.jsp?location=https://s3.amazonaws.com/kinops.io/bundles/kinetic/releases/2.x.x",
+  "enabledLocales": [
+    "en"
+  ],
+  "loginPage": null,
+  "name": "_Migration Test Techbar",
+  "platformComponents": {
+    "agents": [
+
+    ],
+    "task": {
+      "url": "https://0743557.kinops.io/kinetic-task"
+    }
+  },
+  "resetPasswordPage": null,
+  "securityPolicies": [
+    {
+      "endpoint": "Discussion Creation",
+      "name": "Authenticated Users"
+    },
+    {
+      "endpoint": "Display",
+      "name": "Authenticated Users"
+    },
+    {
+      "endpoint": "Teams Access",
+      "name": "Authenticated Users"
+    },
+    {
+      "endpoint": "Team Creation",
+      "name": "Admins"
+    },
+    {
+      "endpoint": "Team Membership Modification",
+      "name": "Admins"
+    },
+    {
+      "endpoint": "Team Modification",
+      "name": "Admins"
+    },
+    {
+      "endpoint": "Users Access",
+      "name": "Authenticated Users"
+    },
+    {
+      "endpoint": "User Creation",
+      "name": "Admins"
+    },
+    {
+      "endpoint": "User Modification",
+      "name": "Admins"
+    }
+  ],
+  "sessionInactiveLimitInSeconds": 2592000,
+  "sharedBundleBase": "hydrogen-v1",
+  "slug": "0743557",
+  "trustedFrameDomains": [
+
+  ],
+  "trustedResourceDomains": [
+
+  ]
+}

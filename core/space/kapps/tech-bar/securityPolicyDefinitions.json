@@ -1,0 +1,62 @@
+[
+  {
+    "message": "Must be an administrator.",
+    "name": "Admins",
+    "rule": "/* \n * Space admins are allowed access regardless of the the result of security \n * policies.  Returning 'false' denies anyone but a space access. \n */\nfalse",
+    "type": "Kapp"
+  },
+  {
+    "message": "Must be authenticated.",
+    "name": "Authenticated Users",
+    "rule": "identity('authenticated')",
+    "type": "Kapp"
+  },
+  {
+    "message": "Everyone is allowed access.",
+    "name": "Everyone",
+    "rule": "true",
+    "type": "Kapp"
+  },
+  {
+    "message": "You must be the Requester to perform this action.",
+    "name": "Requester",
+    "rule": "(function() {\n  // Helper methods\n  var validateAsList = function(obj) {\n    return (obj === null || obj === undefined) ? [] : obj instanceof Array ? obj : [obj];\n  }\n  var hasIntersection = function(list1, list2, finder) {\n    var fn = typeof finder === 'function' ? finder : hasValue;\n    return list1.find(function(value) {return fn(list2, value)}) !== undefined;\n  };\n  var hasValue = function(list, value) { return list.indexOf(value) != -1 };\n  \n  // Data\n  var me = [identity('username')];\n  var requestedBy = validateAsList(values('Requested By', []));\n  var requestedFor = validateAsList(values('Requested For', []));\n\n  // Scheduler Admins\n  return submission('createdBy') == identity('username')\n  || hasIntersection(requestedBy, me)\n  || hasIntersection(requestedFor, me);\n})()\n",
+    "type": "Submission"
+  },
+  {
+    "message": "Must be the user that created the submission.",
+    "name": "Submitter",
+    "rule": "(submission('anonymous') && submission('sessionToken') == identity('sessionToken'))\n|| (!submission('anonymous') && submission('createdBy') == identity('username'))",
+    "type": "Submission"
+  },
+  {
+    "message": "You must be a Tech Bar Admin or Manager to perform this action.",
+    "name": "Tech Bar Admins - Tech Bar Managers",
+    "rule": "(function() {\n  // Helper methods\n  var validateAsList = function(obj) {\n    return (obj === null || obj === undefined) ? [] : obj instanceof Array ? obj : [obj];\n  }\n  var hasIntersection = function(list1, list2, finder) {\n    var fn = typeof finder === 'function' ? finder : hasValue;\n    return list1.find(function(value) {return fn(list2, value)}) !== undefined;\n  };\n  var hasValue = function(list, value) { return list.indexOf(value) != -1 };\n  var hasStartsWithValue = function(list, value) {\n    return list.find(function(iter) {return value && value.indexOf(iter) === 0}) !== undefined;\n  };\n  \n  // Data\n  var userTeams = validateAsList(identity('teams'));\n\n  // Scheduler Admins\n  return hasIntersection(userTeams, ['Role::Scheduler'])\n  // Scheduler Managers\n  || hasIntersection(userTeams, ['Role::Scheduler::'], hasStartsWithValue)\n})()\n",
+    "type": "Kapp"
+  },
+  {
+    "message": "You must be a Tech Bar Admin, Manager, or Agent to perform this action.",
+    "name": "Tech Bar Admins - Tech Bar Managers - Tech Bar Agents",
+    "rule": "(function() {\n  // Helper methods\n  var validateAsList = function(obj) {\n    return (obj === null || obj === undefined) ? [] : obj instanceof Array ? obj : [obj];\n  }\n  var hasIntersection = function(list1, list2, finder) {\n    var fn = typeof finder === 'function' ? finder : hasValue;\n    return list1.find(function(value) {return fn(list2, value)}) !== undefined;\n  };\n  var hasValue = function(list, value) { return list.indexOf(value) != -1 };\n  var hasStartsWithValue = function(list, value) {\n    return list.find(function(iter) {return value && value.indexOf(iter) === 0}) !== undefined;\n  };\n  \n  // Data\n  var userTeams = validateAsList(identity('teams'));\n\n  // Scheduler Admins\n  return hasIntersection(userTeams, ['Role::Scheduler'])\n  // Scheduler Managers\n  || hasIntersection(userTeams, ['Role::Scheduler::'], hasStartsWithValue)\n  // Scheduler Agents\n  || hasIntersection(userTeams, ['Scheduler::'], hasStartsWithValue);\n})()\n",
+    "type": "Kapp"
+  },
+  {
+    "message": "You must have the Tech Bar Display Role to perform this action.",
+    "name": "Tech Bar Display",
+    "rule": "(function() {\n  // Helper methods\n  var validateAsList = function(obj) {\n    return (obj === null || obj === undefined) ? [] : obj instanceof Array ? obj : [obj];\n  }\n  var hasIntersection = function(list1, list2, finder) {\n    var fn = typeof finder === 'function' ? finder : hasValue;\n    return list1.find(function(value) {return fn(list2, value)}) !== undefined;\n  };\n  var hasValue = function(list, value) { return list.indexOf(value) != -1 };\n  var hasStartsWithValue = function(list, value) {\n    return list.find(function(iter) {return value && value.indexOf(iter) === 0}) !== undefined;\n  };\n  \n  // Data\n  var myTeams = validateAsList(identity('teams'));\n\n  // Scheduler Admins\n  return hasIntersection(myTeams, ['Role::Tech Bar Display::'], hasStartsWithValue);\n})()\n",
+    "type": "Kapp"
+  },
+  {
+    "message": "You must be a Tech Bar Admin, Manager, or Agent, or have the Tech Bar Display Role to perform this action.",
+    "name": "Tech Bar Display - Tech Bar Admins - Specific Tech Bar Managers - Specific Tech Bar Agents",
+    "rule": "(function() {\n  // Helper methods\n  var validateAsList = function(obj) {\n    return (obj === null || obj === undefined) ? [] : obj instanceof Array ? obj : [obj];\n  }\n  var hasIntersection = function(list1, list2, finder) {\n    var fn = typeof finder === 'function' ? finder : hasValue;\n    return list1.find(function(value) {return fn(list2, value)}) !== undefined;\n  };\n  var hasValue = function(list, value) { return list.indexOf(value) != -1 };\n  \n  // Data\n  var myTeams = validateAsList(identity('teams'));\n  var techBarNames = validateAsList(values('Observing Teams', []))\n    .map(function(team) {\n      var match = team.match(/^(Role::)?Scheduler::(.*)$/);\n      return match && match[2];\n    })\n  \t.filter(function(teamName) { return !!teamName; });\n\n  // Scheduler Admins\n  return hasIntersection(myTeams, ['Role::Scheduler'])\n  // Specific Tech Bar Managers\n  || hasIntersection(myTeams, techBarNames.map(function(name) {\n  \treturn 'Role::Scheduler::' + name;\n  }))\n  // Specific Tech Bar Agents\n  || hasIntersection(myTeams, techBarNames.map(function(name) {\n  \treturn 'Scheduler::' + name;\n  }))\n  // Tech Bar Display Role\n  || hasIntersection(myTeams, techBarNames.map(function(name) {\n  \treturn 'Role::Tech Bar Display::' + name;\n  }));\n})()\n",
+    "type": "Submission"
+  },
+  {
+    "message": "You must be a Tech Bar Admin, Manager, or Agent, have the Tech Bar Display Role, or be the Requester to perform this action.",
+    "name": "Tech Bar Display - Tech Bar Admins - Specific Tech Bar Managers - Specific Tech Bar Agents - Requester",
+    "rule": "(function() {\n  // Helper methods\n  var validateAsList = function(obj) {\n    return (obj === null || obj === undefined) ? [] : obj instanceof Array ? obj : [obj];\n  }\n  var hasIntersection = function(list1, list2, finder) {\n    var fn = typeof finder === 'function' ? finder : hasValue;\n    return list1.find(function(value) {return fn(list2, value)}) !== undefined;\n  };\n  var hasValue = function(list, value) { return list.indexOf(value) != -1 };\n  \n  // Data\n  var me = [identity('username')];\n  var myTeams = validateAsList(identity('teams'));\n  var requestedBy = validateAsList(values('Requested By', []));\n  var requestedFor = validateAsList(values('Requested For', []));\n  var techBarNames = validateAsList(values('Observing Teams', []))\n    .map(function(team) {\n      var match = team.match(/^(Role::)?Scheduler::(.*)$/);\n      return match && match[2];\n    })\n  \t.filter(function(teamName) { return !!teamName; });\n\n  // Scheduler Admins\n  return hasIntersection(myTeams, ['Role::Scheduler'])\n  // Specific Tech Bar Managers\n  || hasIntersection(myTeams, techBarNames.map(function(name) {\n  \treturn 'Role::Scheduler::' + name;\n  }))\n  // Specific Tech Bar Agents\n  || hasIntersection(myTeams, techBarNames.map(function(name) {\n  \treturn 'Scheduler::' + name;\n  }))\n  // Tech Bar Display Role\n  || hasIntersection(myTeams, techBarNames.map(function(name) {\n  \treturn 'Role::Tech Bar Display::' + name;\n  }))\n  // Requester\n  || submission('createdBy') == identity('username')\n  || hasIntersection(requestedBy, me)\n  || hasIntersection(requestedFor, me);\n})()\n",
+    "type": "Submission"
+  }
+]
