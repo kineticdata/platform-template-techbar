@@ -1,0 +1,179 @@
+<tree schema_version="1.0">
+    <sourceName>-</sourceName>
+    <sourceGroup>-</sourceGroup>
+    <definitionId>routine_tech_bar_metrics_daily_feedback_v1</definitionId>
+    <type>Global Routine</type>
+    <status>Active</status>
+    <taskTree builder_version="" schema_version="1.0" version="">
+        <name>Tech Bar Metrics - Daily - Feedback</name>
+        <author></author>
+        <notes></notes>
+        <lastID>15</lastID>
+        <taskDefinition id="routine_tech_bar_metrics_daily_feedback_v1" name="Tech Bar Metrics - Daily - Feedback" schema_version="1.0" version="1">
+            <visible>false</visible>
+            <deferrable>true</deferrable>
+            <parameters>
+                <parameter id="Scheduler Id" label="Scheduler Id" required="true" tooltip="The scheduler for which to retrieve records"></parameter>
+                <parameter id="Starting Timestamp" label="Starting Timestamp" required="true" tooltip="The starting timestamp from which to retrieve data"></parameter>
+                <parameter id="Ending Timestamp" label="Ending Timestamp" required="true" tooltip="The ending timestamp from which to retrieve data"></parameter>
+                <parameter id="Page Token" label="Page Token" required="false" tooltip="The value to use as the offset for the page of submissions to return. The submission that matches this value will not be included in the results."></parameter>
+            </parameters>
+            <handler name="system_tree_call" version="1"></handler>
+            <results format="xml">
+                <result name="Output" tooltip="JSON output for the results"></result>
+            </results>
+        </taskDefinition>
+        <request>
+            <task definition_id="system_start_v1" id="start" name="Start" x="10" y="10">
+                <version>1</version>
+                <configured>true</configured>
+                <defers>false</defers>
+                <deferrable>false</deferrable>
+                <visible>false</visible>
+                <parameters></parameters>
+                <messages></messages>
+                <dependents>
+                    <task label="" type="Complete" value="">routine_kinetic_submissions_retrieve_list_v1_15</task>
+                </dependents>
+            </task>
+            <task definition_id="system_junction_v1" id="system_junction_v1_6" name="Junction" x="220" y="230">
+                <version>1</version>
+                <configured>true</configured>
+                <defers>false</defers>
+                <deferrable>false</deferrable>
+                <visible>false</visible>
+                <parameters></parameters>
+                <messages>
+                    <message type="Create"></message>
+                    <message type="Update"></message>
+                    <message type="Complete"></message>
+                </messages>
+                <dependents>
+                    <task label="" type="Complete" value="">utilities_echo_v1_7</task>
+                </dependents>
+            </task>
+            <task definition_id="utilities_echo_v1" id="utilities_echo_v1_7" name="Summarize" x="374" y="231">
+                <version>1</version>
+                <configured>true</configured>
+                <defers>false</defers>
+                <deferrable>false</deferrable>
+                <visible>true</visible>
+                <parameters>
+                    <parameter id="input" label="Input" menu="" required="true" tooltip="">&lt;%=
+starting_data = {}
+if @results.has_key? ('Call Self')
+  starting_data = JSON.parse(@results['Call Self']['Output'])
+end
+
+# Summarize Retrieved Data into Starting Data
+feedback = starting_data['feedback'] || {}
+event_types = starting_data['event_types'] || {}
+
+retrieved_data = JSON.parse( @results['Retrieve Data']['Submissions List JSON'] )
+retrieved_data.each{|record|
+  experience = record['values']['Experience']
+  event_type = record['values']['Event Type']
+  if !feedback.has_key? ( experience )
+    feedback[experience] = 1
+  else
+    feedback[experience] += 1
+  end
+
+  if !event_type.nil?
+    if !event_types.has_key? ( event_type )
+      event_types[event_type] = { experience =&gt; 1 }
+    else
+      if !event_types[event_type].has_key? (experience)
+        event_types[event_type][experience] = 1
+      else
+        event_types[event_type][experience] += 1
+      end
+    end
+  end 
+}
+
+{
+  "feedback":feedback,
+  "event_types":event_types
+}.to_json
+
+%&gt;</parameter>
+                </parameters>
+                <messages>
+                    <message type="Create"></message>
+                    <message type="Update"></message>
+                    <message type="Complete"></message>
+                </messages>
+                <dependents>
+                    <task label="" type="Complete" value="">system_tree_return_v1_8</task>
+                </dependents>
+            </task>
+            <task definition_id="system_tree_return_v1" id="system_tree_return_v1_8" name="Return" x="517" y="229">
+                <version>1</version>
+                <configured>true</configured>
+                <defers>false</defers>
+                <deferrable>false</deferrable>
+                <visible>false</visible>
+                <parameters>
+                    <parameter id="Output" label="Output" menu="" required="false" tooltip="JSON output for the results">&lt;%=@results['Summarize']['output']%&gt;</parameter>
+                </parameters>
+                <messages>
+                    <message type="Create"></message>
+                    <message type="Update"></message>
+                    <message type="Complete"></message>
+                </messages>
+                <dependents></dependents>
+            </task>
+            <task definition_id="routine_tech_bar_metrics_daily_feedback_v1" id="routine_tech_bar_metrics_daily_feedback_v1_13" name="Call Self" x="66" y="232">
+                <version>1</version>
+                <configured>true</configured>
+                <defers>true</defers>
+                <deferrable>true</deferrable>
+                <visible>false</visible>
+                <parameters>
+                    <parameter id="Scheduler Id" label="Scheduler Id" menu="" required="true" tooltip="The scheduler for which to retrieve records">&lt;%=@inputs['Scheduler Id']%&gt;</parameter>
+                    <parameter id="Starting Timestamp" label="Starting Timestamp" menu="" required="true" tooltip="The starting timestamp from which to retrieve data">&lt;%=@inputs['Starting Timestamp']%&gt;</parameter>
+                    <parameter id="Ending Timestamp" label="Ending Timestamp" menu="" required="true" tooltip="The ending timestamp from which to retrieve data">&lt;%=@inputs['Ending Timestamp']%&gt;</parameter>
+                    <parameter id="Page Token" label="Page Token" menu="" required="false" tooltip="The value to use as the offset for the page of submissions to return. The submission that matches this value will not be included in the results.">&lt;%=@results['Retrieve Data']['Next Page Token']%&gt;</parameter>
+                </parameters>
+                <messages>
+                    <message type="Create"></message>
+                    <message type="Update"></message>
+                    <message type="Complete"></message>
+                </messages>
+                <dependents>
+                    <task label="" type="Complete" value="">system_junction_v1_6</task>
+                </dependents>
+            </task>
+            <task definition_id="routine_kinetic_submissions_retrieve_list_v1" id="routine_kinetic_submissions_retrieve_list_v1_15" name="Retrieve Data" x="70" y="99">
+                <version>1</version>
+                <configured>true</configured>
+                <defers>true</defers>
+                <deferrable>true</deferrable>
+                <visible>false</visible>
+                <parameters>
+                    <parameter id="Kapp Slug" label="Kapp Slug" menu="" required="true" tooltip="The slug of the Kapp to find submissions in.">tech-bar</parameter>
+                    <parameter id="Form Slug" label="Form Slug" menu="" required="false" tooltip="The slug of the Form to find submissions in. If none provided, can only use Kapp Fields in search query">feedback</parameter>
+                    <parameter id="Form Type" label="Form Type" menu="" required="false" tooltip="The Type of Form to find submissions in."></parameter>
+                    <parameter id="Core State" label="Core State" menu="" required="false" tooltip="Searches for submissions that have a core state that matches this parameter. If no value is provided, the results will contain submissions in all core states."></parameter>
+                    <parameter id="Limit" label="Limit" menu="" required="false" tooltip="Limit the number of results returned. If not provided, the server will limit the results to 25 submissions. Maximum limit 1000">100</parameter>
+                    <parameter id="Query" label="Query" menu="" required="false" tooltip="Query to use to fetch submissions. (i.e values[First Name]=&quot;Fred&quot;)">values[Scheduler Id]="&lt;%=@inputs['Scheduler Id']%&gt;"</parameter>
+                    <parameter id="Timeline" label="Timeline" menu="" required="false" tooltip="Date property to search by. The default value is createdAt."></parameter>
+                    <parameter id="Direction" label="Direction" menu="" required="false" tooltip="Result Set sorting direction. The default value is descending."></parameter>
+                    <parameter id="Start Date/Time" label="Start Date/Time" menu="" required="false" tooltip="Start date/time of the timeline. This value should be used to both refine and limit the search results. Format should be yyyy-MM-dd'T'HH:mm:ss'Z'">&lt;%=@inputs['Starting Timestamp']%&gt;</parameter>
+                    <parameter id="End Date/Time" label="End Date/Time" menu="" required="false" tooltip="End date/time of the timeline. This value should be used to both refine and limit the search results. Formatshould be yyyy-MM-dd'T'HH:mm:ss'Z'">&lt;%=@inputs['Ending Timestamp']%&gt;</parameter>
+                    <parameter id="Next Page Token" label="Next Page Token" menu="" required="false" tooltip="The value to use as the offset for the page of submissions to return. The submission that matches this value will not be included in the results.">&lt;%=@inputs['Page Token']%&gt;</parameter>
+                </parameters>
+                <messages>
+                    <message type="Create"></message>
+                    <message type="Update"></message>
+                    <message type="Complete"></message>
+                </messages>
+                <dependents>
+                    <task label="No More Records" type="Complete" value="@results['Retrieve Data']['Next Page Token'].nil?">system_junction_v1_6</task>
+                    <task label="More Records" type="Complete" value="!@results['Retrieve Data']['Next Page Token'].nil?">routine_tech_bar_metrics_daily_feedback_v1_13</task>
+                </dependents>
+            </task>
+        </request>
+    </taskTree>
+</tree>
