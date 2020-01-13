@@ -71,6 +71,7 @@ SUBMISSIONS_TO_EXPORT = [
   { "datastore" => true, "formSlug" => "notification-data" },
   { "datastore" => true, "formSlug" => "notification-template-dates" },
   { "datastore" => true, "formSlug" => "robot-definitions" },
+  { "datastore" => true, "formSlug" => "scheduler-availability" },
   { "datastore" => true, "formSlug" => "scheduler-config" },
   { "datastore" => true, "formSlug" => "scheduler-override" },
   { "datastore" => true, "formSlug" => "scheduler" },
