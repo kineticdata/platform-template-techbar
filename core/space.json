@@ -118,7 +118,7 @@
     {
       "name": "Task Server Space Slug",
       "values": [
-        "0743557"
+        "techbar-template"
       ]
     },
     {
@@ -136,7 +136,7 @@
     {
       "name": "Web Server Url",
       "values": [
-        "https://0743557.kinops.io"
+        "https://techbar-template.kinops.io"
       ]
     }
   ],
@@ -154,7 +154,7 @@
     "en"
   ],
   "loginPage": null,
-  "name": "_Migration Test Techbar",
+  "name": "Tech Bar Master Template",
   "platformComponents": {
     "agents": [
 
@@ -201,7 +201,7 @@
   ],
   "sessionInactiveLimitInSeconds": 2592000,
   "sharedBundleBase": "hydrogen-v1",
-  "slug": "0743557",
+  "slug": "techbar-template",
   "trustedFrameDomains": [
 
   ],

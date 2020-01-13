@@ -46,7 +46,6 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -67,7 +66,6 @@
               "visible": "!!values('Requested For') || form('review')",
               "omitWhenHidden": false,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -116,7 +114,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -132,7 +129,6 @@
               "visible": "!values('Requested For')",
               "omitWhenHidden": true,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -155,7 +151,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -181,7 +176,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -207,7 +201,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "json",
                   "renderType": "checkbox",
@@ -227,7 +220,6 @@
               "visible": false,
               "omitWhenHidden": false,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -237,7 +229,6 @@
                   "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"issue-container\"></div>",
                   "visible": true,
                   "renderAttributes": {
-
                   }
                 }
               ]
@@ -262,7 +253,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -288,7 +278,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -314,7 +303,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "date"
@@ -339,7 +327,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "time"
@@ -365,7 +352,6 @@
               "enabled": true,
               "renderType": "submit-page",
               "renderAttributes": {
-
               }
             }
           ]
@@ -378,7 +364,6 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -401,7 +386,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -427,7 +411,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -453,7 +436,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -479,7 +461,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -509,7 +490,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -539,7 +519,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -565,7 +544,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -591,7 +569,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -617,7 +594,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -643,7 +619,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -669,7 +644,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -695,7 +669,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",

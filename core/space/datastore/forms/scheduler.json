@@ -227,7 +227,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -253,7 +252,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -279,7 +277,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "radio",
@@ -316,7 +313,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -342,7 +338,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -368,7 +363,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "dropdown",
@@ -398,7 +392,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -447,7 +440,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -486,7 +478,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -526,7 +517,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -555,7 +545,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -594,7 +583,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -637,7 +625,6 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -663,7 +650,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -699,7 +685,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "date"
@@ -734,7 +719,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "date"
@@ -759,7 +743,6 @@
           "enabled": true,
           "renderType": "submit-page",
           "renderAttributes": {
-
           }
         }
       ],

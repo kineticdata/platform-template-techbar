@@ -72,10 +72,12 @@ retrieved_data.each{|record|
       eventTypes[v['type']]['walkins'] += v['walkins'].to_i
       eventTypes[v['type']]['sameDayAppointments'] += v['sameDayAppointments'].to_i
       v['feedback'].each{|k2, v2|
-        if eventTypes[v['type']]['feedback'][k2].nil?
-          eventTypes[v['type']]['feedback'][k2] = v2.to_i
-        else
-          eventTypes[v['type']]['feedback'][k2] += v2.to_i
+        if k2 != "details"  ##the event type feedback can include Positive: 7, Negative: 2, details: [&lt;array of info&gt;]
+          if eventTypes[v['type']]['feedback'][k2].nil?
+            eventTypes[v['type']]['feedback'][k2] = v2.to_i
+          else
+            eventTypes[v['type']]['feedback'][k2] += v2.to_i
+          end
         end
       }
       v['scheduledAppointmentTimes'].each{|k2, v2|

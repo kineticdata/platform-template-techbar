@@ -67,7 +67,6 @@
           "text": "<div id=\"requsted-for-info\" class=\"alert alert-info\"></div>",
           "visible": "identity('username') !== values('Requested For') && form('review')",
           "renderAttributes": {
-
           }
         },
         {
@@ -78,7 +77,6 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -174,7 +172,6 @@
                 }
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -207,7 +204,6 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -218,7 +214,6 @@
               "visible": false,
               "omitWhenHidden": true,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -228,7 +223,6 @@
                   "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"tech-bar-container\"></div>",
                   "visible": true,
                   "renderAttributes": {
-
                   }
                 }
               ]
@@ -241,7 +235,6 @@
               "visible": false,
               "omitWhenHidden": true,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -251,7 +244,6 @@
                   "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"issue-container\"></div>",
                   "visible": true,
                   "renderAttributes": {
-
                   }
                 }
               ]
@@ -264,7 +256,6 @@
               "visible": true,
               "omitWhenHidden": null,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -287,7 +278,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -313,7 +303,6 @@
 
                   ],
                   "renderAttributes": {
-
                   },
                   "dataType": "string",
                   "renderType": "text",
@@ -329,7 +318,6 @@
               "visible": false,
               "omitWhenHidden": false,
               "renderAttributes": {
-
               },
               "elements": [
                 {
@@ -339,7 +327,6 @@
                   "text": "<div id=\"scheduler-widget-container\">\n  <div class=\"form-group required\">\n    <label class=\"field-label\">Date and Time</label>\n    <div class=\"cards__wrapper cards__wrapper--appt pb-0\">\n      <div class=\"card card--long card--appt\">\n        <i class=\"fa fa-calendar fa-fw card-icon\" style=\"background: rgb(255, 74, 94);\"></i>\n        <div class=\"card-body\">\n          <span class=\"card-subtitle\"><em>${translate('Please select a Type of Issue to pick a date and time.')}</em></span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
                   "visible": true,
                   "renderAttributes": {
-
                   }
                 }
               ]
@@ -365,7 +352,6 @@
               "enabled": true,
               "renderType": "submit-page",
               "renderAttributes": {
-
               }
             }
           ]
@@ -378,7 +364,6 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -401,7 +386,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -427,7 +411,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -453,7 +436,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -479,7 +461,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -505,7 +486,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -531,7 +511,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -561,7 +540,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -591,7 +569,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -622,7 +599,6 @@
                 }
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -653,7 +629,6 @@
                 }
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -679,7 +654,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -705,7 +679,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "date"
@@ -730,7 +703,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "time"
@@ -755,7 +727,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -781,7 +752,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -807,7 +777,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -833,7 +802,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -859,7 +827,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -885,7 +852,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -911,7 +877,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -937,7 +902,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",

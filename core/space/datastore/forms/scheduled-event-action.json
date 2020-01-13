@@ -119,7 +119,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "radio",
@@ -156,7 +155,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -182,7 +180,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -208,7 +205,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",

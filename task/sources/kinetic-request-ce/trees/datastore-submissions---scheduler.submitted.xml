@@ -28,11 +28,7 @@
                 <deferrable>false</deferrable>
                 <visible>false</visible>
                 <parameters></parameters>
-                <messages>
-                    <message type="Create"></message>
-                    <message type="Update"></message>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents></dependents>
             </task>
             <task definition_id="system_junction_v1" id="system_junction_v1_9" name="Junction" x="77" y="419">
@@ -42,11 +38,7 @@
                 <deferrable>false</deferrable>
                 <visible>false</visible>
                 <parameters></parameters>
-                <messages>
-                    <message type="Create"></message>
-                    <message type="Update"></message>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents>
                     <task label="" type="Complete" value="">system_noop_v1_4</task>
                 </dependents>
@@ -58,16 +50,12 @@
                 <deferrable>true</deferrable>
                 <visible>false</visible>
                 <parameters>
-                    <parameter id="Name" label="Name" menu="" required="true" tooltip="The teams name">Role::Scheduler::&lt;%= @values['Name']%&gt;</parameter>
-                    <parameter id="Description" label="Description" menu="" required="false" tooltip="The teams description"></parameter>
-                    <parameter id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the team">{"Assignable":["False"]}</parameter>
-                    <parameter id="Memberships List JSON" label="Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Name" label="Name" menu="" required="true" tooltip="The teams name">Role::Scheduler::&lt;%= @values['Name']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Description" label="Description" menu="" required="false" tooltip="The teams description"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the team">{"Assignable":["False"]}</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Memberships List JSON" label="Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])"></parameter>
                 </parameters>
-                <messages>
-                    <message type="Create"></message>
-                    <message type="Update"></message>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents>
                     <task label="" type="Complete" value="">routine_kinetic_team_create_v1_12</task>
                 </dependents>
@@ -79,16 +67,12 @@
                 <deferrable>true</deferrable>
                 <visible>false</visible>
                 <parameters>
-                    <parameter id="Name" label="Name" menu="" required="true" tooltip="The teams name">Scheduler::&lt;%= @values['Name']%&gt;</parameter>
-                    <parameter id="Description" label="Description" menu="" required="false" tooltip="The teams description"></parameter>
-                    <parameter id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the team"></parameter>
-                    <parameter id="Memberships List JSON" label="Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Name" label="Name" menu="" required="true" tooltip="The teams name">Scheduler::&lt;%= @values['Name']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Description" label="Description" menu="" required="false" tooltip="The teams description"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the team"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Memberships List JSON" label="Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])"></parameter>
                 </parameters>
-                <messages>
-                    <message type="Create"></message>
-                    <message type="Update"></message>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents>
                     <task label="" type="Complete" value="">system_junction_v1_9</task>
                     <task label="If TechBar" type="Complete" value="@values['Type'].downcase==&quot;techbar&quot; || @values['Type'].downcase==&quot;tech bar&quot;">routine_kinetic_team_update_v1_13</task>
@@ -101,10 +85,10 @@
                 <deferrable>true</deferrable>
                 <visible>false</visible>
                 <parameters>
-                    <parameter id="Current Name" label="Current Name" menu="" required="true" tooltip="The Teams current name">Scheduler::&lt;%= @values['Name']%&gt;</parameter>
-                    <parameter id="Updated - Name" label="Updated - Name" menu="" required="false" tooltip="The updated name - may be omitted"></parameter>
-                    <parameter id="Updated - Description" label="Updated - Description" menu="" required="false" tooltip="The updated description"></parameter>
-                    <parameter id="Updated - Attributes Map JSON" label="Updated - Attributes Map JSON" menu="" required="false" tooltip="Include only attributes that need to be updated">&lt;%=
+                    <parameter dependsOnId="" dependsOnValue="" id="Current Name" label="Current Name" menu="" required="true" tooltip="The Teams current name">Scheduler::&lt;%= @values['Name']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Updated - Name" label="Updated - Name" menu="" required="false" tooltip="The updated name - may be omitted"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Updated - Description" label="Updated - Description" menu="" required="false" tooltip="The updated description"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Updated - Attributes Map JSON" label="Updated - Attributes Map JSON" menu="" required="false" tooltip="Include only attributes that need to be updated">&lt;%=
 
 attribute_value = {
   "name" =&gt; @values['Name'],
@@ -114,9 +98,7 @@ attribute_value = {
   ],
   "teams" =&gt; [],
   "assignments" =&gt; {
-    "mine" =&gt; true,
-    "teammates" =&gt; true,
-    "unassigned" =&gt; true
+    "any" =&gt; true
   },
   "dateRange" =&gt; {
     "timeline" =&gt; "createdAt",
@@ -132,7 +114,7 @@ attribute_value = {
 {"Default Queue Filter" =&gt; [attribute_value]}.to_json
 %&gt;
 </parameter>
-                    <parameter id="Updated - Memberships List JSON" label="Updated - Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members. This will replace existing team members (ie. ['john.doe', 'jane.doe'])"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Updated - Memberships List JSON" label="Updated - Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members. This will replace existing team members (ie. ['john.doe', 'jane.doe'])"></parameter>
                 </parameters>
                 <messages>
                     <message type="Create"></message>
@@ -150,16 +132,12 @@ attribute_value = {
                 <deferrable>true</deferrable>
                 <visible>false</visible>
                 <parameters>
-                    <parameter id="Name" label="Name" menu="" required="true" tooltip="The teams name">Role::Tech Bar Display::&lt;%= @values['Name']%&gt;</parameter>
-                    <parameter id="Description" label="Description" menu="" required="false" tooltip="The teams description"></parameter>
-                    <parameter id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the team">{"Assignable":["False"]}</parameter>
-                    <parameter id="Memberships List JSON" label="Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Name" label="Name" menu="" required="true" tooltip="The teams name">Role::Tech Bar Display::&lt;%= @values['Name']%&gt;</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Description" label="Description" menu="" required="false" tooltip="The teams description"></parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Attributes Map JSON" label="Attributes Map JSON" menu="" required="false" tooltip="JSON representation of the attributes associated to the team">{"Assignable":["False"]}</parameter>
+                    <parameter dependsOnId="" dependsOnValue="" id="Memberships List JSON" label="Memberships List JSON" menu="" required="false" tooltip="A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])"></parameter>
                 </parameters>
-                <messages>
-                    <message type="Create"></message>
-                    <message type="Update"></message>
-                    <message type="Complete"></message>
-                </messages>
+                <messages></messages>
                 <dependents>
                     <task label="" type="Complete" value="">system_junction_v1_9</task>
                 </dependents>

@@ -64,7 +64,6 @@
           "visible": true,
           "omitWhenHidden": null,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -87,7 +86,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "text",
@@ -113,7 +111,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "string",
               "renderType": "date"

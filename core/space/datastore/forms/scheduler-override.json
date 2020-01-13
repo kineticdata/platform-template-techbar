@@ -136,7 +136,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -162,7 +161,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "date"
@@ -187,7 +185,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "time"
@@ -215,7 +212,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "time"
@@ -243,7 +239,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -257,7 +252,6 @@
           "enabled": true,
           "renderType": "submit-page",
           "renderAttributes": {
-
           }
         }
       ],

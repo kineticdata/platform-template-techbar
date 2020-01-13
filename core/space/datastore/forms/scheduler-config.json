@@ -157,7 +157,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -183,7 +182,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -209,7 +207,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "radio",
@@ -251,7 +248,6 @@
             }
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -264,7 +260,6 @@
           "text": "<div class=\"form-group required\">\n  <label class=\"field-label\" for=\"duration-display\">Duration</label>\n  <div class=\"input-group\">\n    <div class=\"input-group-prepend\">\n      <button class=\"btn btn-inverse decrease-duration\" type=\"button\">-</button>\n    </div>\n  \t<input data-element-type=\"field\" id=\"duration-display\" type=\"text\" name=\"Duration\" class=\"form-control\">\n    <div class=\"input-group-append\">\n      <button class=\"btn btn-inverse increase-duration\" type=\"button\">+</button>\n    </div>\n  </div>\n</div>",
           "visible": true,
           "renderAttributes": {
-
           }
         },
         {
@@ -295,7 +290,6 @@
             }
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -309,7 +303,6 @@
           "enabled": true,
           "renderType": "submit-page",
           "renderAttributes": {
-
           }
         }
       ],

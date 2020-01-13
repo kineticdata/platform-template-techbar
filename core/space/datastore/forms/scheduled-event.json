@@ -169,7 +169,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -195,7 +194,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -221,7 +219,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "date"
@@ -246,7 +243,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "time"
@@ -271,7 +267,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -297,7 +292,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "datetime"
@@ -322,7 +316,6 @@
 
           ],
           "renderAttributes": {
-
           },
           "dataType": "string",
           "renderType": "text",
@@ -336,7 +329,6 @@
           "visible": false,
           "omitWhenHidden": false,
           "renderAttributes": {
-
           },
           "elements": [
             {
@@ -359,7 +351,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",
@@ -389,7 +380,6 @@
 
               ],
               "renderAttributes": {
-
               },
               "dataType": "json",
               "renderType": "checkbox",

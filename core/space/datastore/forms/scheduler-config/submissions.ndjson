@@ -1,0 +1,4 @@
+{"coreState":"Submitted","currentPage":"Scheduler Config","label":"hq-techbar-1 Mobile Device Issues","values":{"Scheduler Id":"hq-techbar-1","Event Type":"Mobile Device Issues","Duration Multiplier":"1","Time Interval":null,"Status":"Inactive"}}
+{"coreState":"Submitted","currentPage":"Scheduler Config","label":"hq-techbar-1 Adhoc Tech Training","values":{"Scheduler Id":"hq-techbar-1","Event Type":"Adhoc Tech Training","Duration Multiplier":"2","Time Interval":null,"Status":"Inactive"}}
+{"coreState":"Submitted","currentPage":"Scheduler Config","label":"hq-techbar-1 Laptop Issue","values":{"Scheduler Id":"hq-techbar-1","Event Type":"Laptop Issue","Duration Multiplier":"1","Time Interval":null,"Status":"Inactive"}}
+{"coreState":"Submitted","currentPage":"Scheduler Config","label":"hq-techbar-1 All Issues","values":{"Scheduler Id":"hq-techbar-1","Event Type":"All Issues","Duration Multiplier":"1","Time Interval":null,"Status":"Active"}}
