@@ -98,7 +98,9 @@ attribute_value = {
   ],
   "teams" =&gt; [],
   "assignments" =&gt; {
-    "any" =&gt; true
+    "mine" =&gt; true,
+    "teammates" =&gt; true,
+    "unassigned" =&gt; true
   },
   "dateRange" =&gt; {
     "timeline" =&gt; "createdAt",
