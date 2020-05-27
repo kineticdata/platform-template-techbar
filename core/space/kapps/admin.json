@@ -107,29 +107,6 @@
       "name": "Status"
     }
   ],
-  "formTypes": [
-    {
-      "name": "Console"
-    },
-    {
-      "name": "Content"
-    },
-    {
-      "name": "Datastore"
-    },
-    {
-      "name": "Service"
-    },
-    {
-      "name": "Subconsole"
-    },
-    {
-      "name": "Template"
-    },
-    {
-      "name": "Utility"
-    }
-  ],
   "loginPage": null,
   "name": "System Forms",
   "resetPasswordPage": null,
@@ -167,8 +144,5 @@
       "name": "Submission Support"
     }
   ],
-  "slug": "admin",
-  "webApis": [
-
-  ]
+  "slug": "admin"
 }

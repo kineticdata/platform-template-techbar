@@ -76,32 +76,6 @@
       "name": "Status"
     }
   ],
-  "formTypes": [
-    {
-      "name": "Approval"
-    },
-    {
-      "name": "Console"
-    },
-    {
-      "name": "Content"
-    },
-    {
-      "name": "Service"
-    },
-    {
-      "name": "Service Description"
-    },
-    {
-      "name": "Subservice"
-    },
-    {
-      "name": "Template"
-    },
-    {
-      "name": "Work Order"
-    }
-  ],
   "loginPage": null,
   "name": "Tech Bar",
   "resetPasswordPage": null,
@@ -139,8 +113,5 @@
       "name": "Admins"
     }
   ],
-  "slug": "tech-bar",
-  "webApis": [
-
-  ]
+  "slug": "tech-bar"
 }

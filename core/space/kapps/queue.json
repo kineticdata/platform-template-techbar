@@ -95,29 +95,6 @@
       "name": "Status"
     }
   ],
-  "formTypes": [
-    {
-      "name": "Approval"
-    },
-    {
-      "name": "Automated"
-    },
-    {
-      "name": "Console"
-    },
-    {
-      "name": "Subtask"
-    },
-    {
-      "name": "Task"
-    },
-    {
-      "name": "Template"
-    },
-    {
-      "name": "Work Item"
-    }
-  ],
   "loginPage": "",
   "name": "Queue",
   "resetPasswordPage": "",
@@ -155,8 +132,5 @@
       "name": "Submission Support"
     }
   ],
-  "slug": "queue",
-  "webApis": [
-
-  ]
+  "slug": "queue"
 }
