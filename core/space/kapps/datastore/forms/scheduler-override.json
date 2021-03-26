@@ -1,7 +1,14 @@
 {
   "form": {
     "anonymous": false,
-    "attributes": [],
+    "attributes": [
+      {
+        "name": "Datastore Hidden",
+        "values": [
+          "True"
+        ]
+      }
+    ],
     "bridgedResources": [],
     "categorizations": [],
     "customHeadContent": null,
@@ -43,30 +50,16 @@
         "unique": false
       },
       {
-        "name": "values[Appointment Id]",
+        "name": "values[Date]",
         "parts": [
-          "values[Appointment Id]"
+          "values[Date]"
         ],
         "unique": false
       },
       {
-        "name": "values[Event Date]",
+        "name": "values[End Time]",
         "parts": [
-          "values[Event Date]"
-        ],
-        "unique": false
-      },
-      {
-        "name": "values[Event Type]",
-        "parts": [
-          "values[Event Type]"
-        ],
-        "unique": false
-      },
-      {
-        "name": "values[Experience]",
-        "parts": [
-          "values[Experience]"
+          "values[End Time]"
         ],
         "unique": false
       },
@@ -76,9 +69,33 @@
           "values[Scheduler Id]"
         ],
         "unique": false
+      },
+      {
+        "name": "values[Scheduler Id],values[Date],values[Start Time],values[End Time]",
+        "parts": [
+          "values[Scheduler Id]",
+          "values[Date]",
+          "values[Start Time]",
+          "values[End Time]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Slots]",
+        "parts": [
+          "values[Slots]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Start Time]",
+        "parts": [
+          "values[Start Time]"
+        ],
+        "unique": false
       }
     ],
-    "name": "Feedback",
+    "name": "Scheduler Override",
     "notes": null,
     "pages": [
       {
@@ -88,9 +105,29 @@
         "elements": [
           {
             "type": "field",
-            "name": "Experience",
-            "label": null,
+            "name": "Scheduler Id",
+            "label": "Scheduler Id",
             "key": "f1",
+            "defaultValue": null,
+            "defaultResourceName": null,
+            "visible": false,
+            "enabled": false,
+            "required": true,
+            "requiredMessage": null,
+            "omitWhenHidden": false,
+            "pattern": null,
+            "constraints": [],
+            "events": [],
+            "renderAttributes": {},
+            "dataType": "string",
+            "renderType": "text",
+            "rows": 1
+          },
+          {
+            "type": "field",
+            "name": "Date",
+            "label": "Date",
+            "key": "f6",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
@@ -103,50 +140,18 @@
             "events": [],
             "renderAttributes": {},
             "dataType": "string",
-            "renderType": "radio",
-            "choicesResourceName": null,
-            "choicesRunIf": null,
-            "choices": [
-              {
-                "label": "Positive",
-                "value": "Positive"
-              },
-              {
-                "label": "Negative",
-                "value": "Negative"
-              }
-            ]
+            "renderType": "date"
           },
           {
             "type": "field",
-            "name": "Appointment Id",
-            "label": "Appointment Id",
-            "key": "f2",
-            "defaultValue": null,
-            "defaultResourceName": null,
-            "visible": true,
-            "enabled": true,
-            "required": false,
-            "requiredMessage": null,
-            "omitWhenHidden": null,
-            "pattern": null,
-            "constraints": [],
-            "events": [],
-            "renderAttributes": {},
-            "dataType": "string",
-            "renderType": "text",
-            "rows": 1
-          },
-          {
-            "type": "field",
-            "name": "Scheduler Id",
-            "label": "Scheduler Id",
+            "name": "Start Time",
+            "label": "Start Time",
             "key": "f3",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": false,
+            "required": true,
             "requiredMessage": null,
             "omitWhenHidden": null,
             "pattern": null,
@@ -154,42 +159,48 @@
             "events": [],
             "renderAttributes": {},
             "dataType": "string",
-            "renderType": "text",
-            "rows": 1
+            "renderType": "time"
           },
           {
             "type": "field",
-            "name": "Event Type",
-            "label": "Event Type",
+            "name": "End Time",
+            "label": "End Time",
             "key": "f4",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": false,
+            "required": true,
             "requiredMessage": null,
             "omitWhenHidden": null,
             "pattern": null,
-            "constraints": [],
+            "constraints": [
+              {
+                "content": "!values('Start Time') || !values('End Time') || values('End Time') > values('Start Time') || (values('End Time') == values('Start Time') && values('End Time') == \"00:00\")",
+                "message": "End Time must be before Start Time."
+              }
+            ],
             "events": [],
             "renderAttributes": {},
             "dataType": "string",
-            "renderType": "text",
-            "rows": 1
+            "renderType": "time"
           },
           {
             "type": "field",
-            "name": "Event Date",
-            "label": "Event Date",
+            "name": "Slots",
+            "label": "Simultaneous Slots",
             "key": "f5",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": false,
+            "required": true,
             "requiredMessage": null,
             "omitWhenHidden": null,
-            "pattern": null,
+            "pattern": {
+              "regex": "^\\d+$",
+              "message": "Simultaneous Slots value must be a whole number."
+            },
             "constraints": [],
             "events": [],
             "renderAttributes": {},
@@ -199,8 +210,8 @@
           },
           {
             "type": "button",
-            "label": "Submit",
-            "name": "Submit Button",
+            "label": "Save",
+            "name": "Save",
             "visible": true,
             "enabled": true,
             "renderType": "submit-page",
@@ -208,7 +219,7 @@
           }
         ],
         "events": [],
-        "name": "Feedback",
+        "name": "Scheduler Override",
         "renderType": "submittable",
         "type": "page"
       }
@@ -216,7 +227,7 @@
     "securityPolicies": [
       {
         "endpoint": "Display",
-        "name": "Tech Bar Display"
+        "name": "Scheduler Admins - Scheduler Managers"
       },
       {
         "endpoint": "Modification",
@@ -224,16 +235,16 @@
       },
       {
         "endpoint": "Submission Access",
-        "name": "Tech Bar Admins - Tech Bar Managers"
+        "name": "Authenticated Users"
       },
       {
         "endpoint": "Submission Modification",
-        "name": "Admins"
+        "name": "Scheduler Admins - Scheduler Managers"
       }
     ],
-    "slug": "feedback",
+    "slug": "scheduler-override",
     "status": "Active",
-    "submissionLabelExpression": "${values('Experience')} ${values('Appointment Id')}",
-    "type": "Service"
+    "submissionLabelExpression": "${values('Scheduler Id')} ${values('Date')}",
+    "type": null
   }
 }

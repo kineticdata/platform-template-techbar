@@ -1,7 +1,14 @@
 {
   "form": {
     "anonymous": false,
-    "attributes": [],
+    "attributes": [
+      {
+        "name": "Datastore Hidden",
+        "values": [
+          "True"
+        ]
+      }
+    ],
     "bridgedResources": [],
     "categorizations": [],
     "customHeadContent": null,
@@ -43,42 +50,28 @@
         "unique": false
       },
       {
-        "name": "values[Appointment Id]",
+        "name": "values[Allow Walk-Ins]",
         "parts": [
-          "values[Appointment Id]"
+          "values[Allow Walk-Ins]"
         ],
         "unique": false
       },
       {
-        "name": "values[Event Date]",
+        "name": "values[Feedback Identification]",
         "parts": [
-          "values[Event Date]"
+          "values[Feedback Identification]"
         ],
         "unique": false
       },
       {
-        "name": "values[Event Type]",
-        "parts": [
-          "values[Event Type]"
-        ],
-        "unique": false
-      },
-      {
-        "name": "values[Experience]",
-        "parts": [
-          "values[Experience]"
-        ],
-        "unique": false
-      },
-      {
-        "name": "values[Scheduler Id]",
+        "name": "values[Scheduler Id]:UNIQUE",
         "parts": [
           "values[Scheduler Id]"
         ],
-        "unique": false
+        "unique": true
       }
     ],
-    "name": "Feedback",
+    "name": "Tech Bar Settings",
     "notes": null,
     "pages": [
       {
@@ -88,14 +81,34 @@
         "elements": [
           {
             "type": "field",
-            "name": "Experience",
-            "label": null,
-            "key": "f1",
+            "name": "Scheduler Id",
+            "label": "Scheduler Id",
+            "key": "f2",
             "defaultValue": null,
+            "defaultResourceName": null,
+            "visible": false,
+            "enabled": false,
+            "required": true,
+            "requiredMessage": null,
+            "omitWhenHidden": false,
+            "pattern": null,
+            "constraints": [],
+            "events": [],
+            "renderAttributes": {},
+            "dataType": "string",
+            "renderType": "text",
+            "rows": 1
+          },
+          {
+            "type": "field",
+            "name": "Allow Walk-Ins",
+            "label": "Allow Walk-Ins?",
+            "key": "f1",
+            "defaultValue": "Yes",
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": true,
+            "required": false,
             "requiredMessage": null,
             "omitWhenHidden": null,
             "pattern": null,
@@ -108,41 +121,21 @@
             "choicesRunIf": null,
             "choices": [
               {
-                "label": "Positive",
-                "value": "Positive"
+                "label": "Yes",
+                "value": "Yes"
               },
               {
-                "label": "Negative",
-                "value": "Negative"
+                "label": "No",
+                "value": "No"
               }
             ]
           },
           {
             "type": "field",
-            "name": "Appointment Id",
-            "label": "Appointment Id",
-            "key": "f2",
-            "defaultValue": null,
-            "defaultResourceName": null,
-            "visible": true,
-            "enabled": true,
-            "required": false,
-            "requiredMessage": null,
-            "omitWhenHidden": null,
-            "pattern": null,
-            "constraints": [],
-            "events": [],
-            "renderAttributes": {},
-            "dataType": "string",
-            "renderType": "text",
-            "rows": 1
-          },
-          {
-            "type": "field",
-            "name": "Scheduler Id",
-            "label": "Scheduler Id",
+            "name": "Feedback Identification",
+            "label": "Feedback Identification",
             "key": "f3",
-            "defaultValue": null,
+            "defaultValue": "Optional",
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
@@ -154,52 +147,27 @@
             "events": [],
             "renderAttributes": {},
             "dataType": "string",
-            "renderType": "text",
-            "rows": 1
-          },
-          {
-            "type": "field",
-            "name": "Event Type",
-            "label": "Event Type",
-            "key": "f4",
-            "defaultValue": null,
-            "defaultResourceName": null,
-            "visible": true,
-            "enabled": true,
-            "required": false,
-            "requiredMessage": null,
-            "omitWhenHidden": null,
-            "pattern": null,
-            "constraints": [],
-            "events": [],
-            "renderAttributes": {},
-            "dataType": "string",
-            "renderType": "text",
-            "rows": 1
-          },
-          {
-            "type": "field",
-            "name": "Event Date",
-            "label": "Event Date",
-            "key": "f5",
-            "defaultValue": null,
-            "defaultResourceName": null,
-            "visible": true,
-            "enabled": true,
-            "required": false,
-            "requiredMessage": null,
-            "omitWhenHidden": null,
-            "pattern": null,
-            "constraints": [],
-            "events": [],
-            "renderAttributes": {},
-            "dataType": "string",
-            "renderType": "text",
-            "rows": 1
+            "renderType": "radio",
+            "choicesResourceName": null,
+            "choicesRunIf": null,
+            "choices": [
+              {
+                "label": "Required",
+                "value": "Required"
+              },
+              {
+                "label": "Optional",
+                "value": "Optional"
+              },
+              {
+                "label": "Hidden",
+                "value": "Hidden"
+              }
+            ]
           },
           {
             "type": "button",
-            "label": "Submit",
+            "label": "Save",
             "name": "Submit Button",
             "visible": true,
             "enabled": true,
@@ -208,7 +176,7 @@
           }
         ],
         "events": [],
-        "name": "Feedback",
+        "name": "Tech Bar Settings",
         "renderType": "submittable",
         "type": "page"
       }
@@ -216,7 +184,7 @@
     "securityPolicies": [
       {
         "endpoint": "Display",
-        "name": "Tech Bar Display"
+        "name": "Scheduler Admins - Scheduler Managers"
       },
       {
         "endpoint": "Modification",
@@ -224,16 +192,16 @@
       },
       {
         "endpoint": "Submission Access",
-        "name": "Tech Bar Admins - Tech Bar Managers"
+        "name": "Authenticated Users"
       },
       {
         "endpoint": "Submission Modification",
-        "name": "Admins"
+        "name": "Scheduler Admins - Scheduler Managers"
       }
     ],
-    "slug": "feedback",
+    "slug": "tech-bar-settings",
     "status": "Active",
-    "submissionLabelExpression": "${values('Experience')} ${values('Appointment Id')}",
-    "type": "Service"
+    "submissionLabelExpression": null,
+    "type": null
   }
 }

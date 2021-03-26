@@ -3,28 +3,16 @@
     "anonymous": false,
     "attributes": [
       {
-        "name": "Icon",
+        "name": "Datastore Hidden",
         "values": [
-          "fa-exclamation-triangle"
-        ]
-      },
-      {
-        "name": "Owning Team",
-        "values": [
-          "Default"
-        ]
-      },
-      {
-        "name": "Task Assignee Team",
-        "values": [
-          "Default"
+          "True"
         ]
       }
     ],
     "bridgedResources": [],
     "categorizations": [],
-    "customHeadContent": null,
-    "description": "This form is used to create issues and send them to your system administrator.",
+    "customHeadContent": "",
+    "description": "Store the details of an execution of a robot's schedule.",
     "indexDefinitions": [
       {
         "name": "closedBy",
@@ -62,58 +50,74 @@
         "unique": false
       },
       {
-        "name": "values[Discussion Id]",
+        "name": "values[Deferral Token]",
         "parts": [
-          "values[Discussion Id]"
+          "values[Deferral Token]"
         ],
         "unique": false
       },
       {
-        "name": "values[How can we help you]",
+        "name": "values[End]",
         "parts": [
-          "values[How can we help you]"
+          "values[End]"
         ],
         "unique": false
       },
       {
-        "name": "values[Observing Individuals]",
+        "name": "values[Execution Duration]",
         "parts": [
-          "values[Observing Individuals]"
+          "values[Execution Duration]"
         ],
         "unique": false
       },
       {
-        "name": "values[Observing Teams]",
+        "name": "values[Input]",
         "parts": [
-          "values[Observing Teams]"
+          "values[Input]"
         ],
         "unique": false
       },
       {
-        "name": "values[Requested By Display Name]",
+        "name": "values[Output]",
         "parts": [
-          "values[Requested By Display Name]"
+          "values[Output]"
         ],
         "unique": false
       },
       {
-        "name": "values[Requested By]",
+        "name": "values[Robot ID]",
         "parts": [
-          "values[Requested By]"
+          "values[Robot ID]"
         ],
         "unique": false
       },
       {
-        "name": "values[Requested For Display Name]",
+        "name": "values[Robot ID],values[Start]",
         "parts": [
-          "values[Requested For Display Name]"
+          "values[Robot ID]",
+          "values[Start]"
         ],
         "unique": false
       },
       {
-        "name": "values[Requested For]",
+        "name": "values[Robot Name]",
         "parts": [
-          "values[Requested For]"
+          "values[Robot Name]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Start]",
+        "parts": [
+          "values[Start]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Start],values[End]",
+        "parts": [
+          "values[Start]",
+          "values[End]"
         ],
         "unique": false
       },
@@ -125,7 +129,7 @@
         "unique": false
       }
     ],
-    "name": "Help",
+    "name": "Robot Executions",
     "notes": null,
     "pages": [
       {
@@ -134,145 +138,187 @@
         "displayPage": null,
         "elements": [
           {
-            "type": "field",
-            "name": "How can we help you",
-            "label": "How can we help you?",
-            "key": "f1",
-            "defaultValue": null,
-            "defaultResourceName": null,
-            "visible": true,
-            "enabled": true,
-            "required": true,
-            "requiredMessage": null,
-            "omitWhenHidden": null,
-            "pattern": null,
-            "constraints": [],
-            "events": [],
-            "renderAttributes": {},
-            "dataType": "string",
-            "renderType": "text",
-            "rows": 4
-          },
-          {
             "type": "section",
             "renderType": null,
-            "name": "Footer",
+            "name": "Execution Details",
             "title": null,
             "visible": true,
             "omitWhenHidden": null,
-            "renderAttributes": {
-              "class": "text-right"
-            },
+            "renderAttributes": {},
             "elements": [
               {
-                "type": "button",
-                "label": "Submit",
-                "name": "Submit Button",
+                "type": "field",
+                "name": "Status",
+                "label": "Status",
+                "key": "f6",
+                "defaultValue": null,
+                "defaultResourceName": null,
                 "visible": true,
-                "enabled": true,
-                "renderType": "submit-page",
-                "renderAttributes": {}
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "radio",
+                "choicesResourceName": null,
+                "choicesRunIf": null,
+                "choices": [
+                  {
+                    "label": "Queued",
+                    "value": "Queued"
+                  },
+                  {
+                    "label": "Running",
+                    "value": "Running"
+                  },
+                  {
+                    "label": "Completed",
+                    "value": "Completed"
+                  }
+                ]
+              },
+              {
+                "type": "field",
+                "name": "Robot Name",
+                "label": "Robot Name",
+                "key": "f1",
+                "defaultValue": null,
+                "defaultResourceName": null,
+                "visible": true,
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "text",
+                "rows": 1
+              },
+              {
+                "type": "field",
+                "name": "Input",
+                "label": "Input",
+                "key": "f8",
+                "defaultValue": null,
+                "defaultResourceName": null,
+                "visible": true,
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "text",
+                "rows": 3
+              },
+              {
+                "type": "field",
+                "name": "Start",
+                "label": "Start",
+                "key": "f3",
+                "defaultValue": null,
+                "defaultResourceName": null,
+                "visible": true,
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "datetime"
+              },
+              {
+                "type": "field",
+                "name": "End",
+                "label": "End",
+                "key": "f4",
+                "defaultValue": null,
+                "defaultResourceName": null,
+                "visible": true,
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "datetime"
+              },
+              {
+                "type": "field",
+                "name": "Execution Duration",
+                "label": "Execution Duration (Seconds)",
+                "key": "f7",
+                "defaultValue": null,
+                "defaultResourceName": null,
+                "visible": true,
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "text",
+                "rows": 1
+              },
+              {
+                "type": "field",
+                "name": "Output",
+                "label": "Output",
+                "key": "f5",
+                "defaultValue": null,
+                "defaultResourceName": null,
+                "visible": true,
+                "enabled": false,
+                "required": false,
+                "requiredMessage": null,
+                "omitWhenHidden": null,
+                "pattern": null,
+                "constraints": [],
+                "events": [],
+                "renderAttributes": {},
+                "dataType": "string",
+                "renderType": "text",
+                "rows": 3
               }
             ]
           },
           {
             "type": "section",
             "renderType": null,
-            "name": "Hidden System Questions Do Not Delete",
-            "title": "Hidden System Questions Do Not Delete",
+            "name": "Processing",
+            "title": null,
             "visible": false,
             "omitWhenHidden": false,
             "renderAttributes": {},
             "elements": [
               {
                 "type": "field",
-                "name": "Requested For",
-                "label": "Requested For",
-                "key": "f908",
-                "defaultValue": "${identity('username')}",
-                "defaultResourceName": null,
-                "visible": true,
-                "enabled": true,
-                "required": false,
-                "requiredMessage": null,
-                "omitWhenHidden": null,
-                "pattern": null,
-                "constraints": [],
-                "events": [],
-                "renderAttributes": {},
-                "dataType": "string",
-                "renderType": "text",
-                "rows": 1
-              },
-              {
-                "type": "field",
-                "name": "Requested For Display Name",
-                "label": "Requested For Display Name",
-                "key": "f909",
-                "defaultValue": "${identity('displayName')}",
-                "defaultResourceName": null,
-                "visible": true,
-                "enabled": true,
-                "required": false,
-                "requiredMessage": null,
-                "omitWhenHidden": null,
-                "pattern": null,
-                "constraints": [],
-                "events": [],
-                "renderAttributes": {},
-                "dataType": "string",
-                "renderType": "text",
-                "rows": 1
-              },
-              {
-                "type": "field",
-                "name": "Requested By",
-                "label": "Requested By",
-                "key": "f906",
-                "defaultValue": "${identity('username')}",
-                "defaultResourceName": null,
-                "visible": true,
-                "enabled": true,
-                "required": false,
-                "requiredMessage": null,
-                "omitWhenHidden": null,
-                "pattern": null,
-                "constraints": [],
-                "events": [],
-                "renderAttributes": {},
-                "dataType": "string",
-                "renderType": "text",
-                "rows": 1
-              },
-              {
-                "type": "field",
-                "name": "Requested By Display Name",
-                "label": "Requested By Display Name",
-                "key": "f907",
-                "defaultValue": "${identity('displayName')}",
-                "defaultResourceName": null,
-                "visible": true,
-                "enabled": true,
-                "required": false,
-                "requiredMessage": null,
-                "omitWhenHidden": null,
-                "pattern": null,
-                "constraints": [],
-                "events": [],
-                "renderAttributes": {},
-                "dataType": "string",
-                "renderType": "text",
-                "rows": 1
-              },
-              {
-                "type": "field",
-                "name": "Discussion Id",
-                "label": "Discussion Id",
-                "key": "f902",
+                "name": "Deferral Token",
+                "label": "Deferral Token",
+                "key": "f10",
                 "defaultValue": null,
                 "defaultResourceName": null,
                 "visible": true,
-                "enabled": true,
+                "enabled": false,
                 "required": false,
                 "requiredMessage": null,
                 "omitWhenHidden": null,
@@ -286,57 +332,13 @@
               },
               {
                 "type": "field",
-                "name": "Observing Teams",
-                "label": "Observing Teams",
-                "key": "f904",
+                "name": "Robot ID",
+                "label": "Robot ID",
+                "key": "f2",
                 "defaultValue": null,
                 "defaultResourceName": null,
                 "visible": true,
-                "enabled": true,
-                "required": false,
-                "requiredMessage": null,
-                "omitWhenHidden": null,
-                "pattern": null,
-                "constraints": [],
-                "events": [],
-                "renderAttributes": {},
-                "dataType": "json",
-                "renderType": "checkbox",
-                "choicesResourceName": null,
-                "choicesRunIf": null,
-                "choices": []
-              },
-              {
-                "type": "field",
-                "name": "Observing Individuals",
-                "label": "Observing Individuals",
-                "key": "f905",
-                "defaultValue": null,
-                "defaultResourceName": null,
-                "visible": true,
-                "enabled": true,
-                "required": false,
-                "requiredMessage": null,
-                "omitWhenHidden": null,
-                "pattern": null,
-                "constraints": [],
-                "events": [],
-                "renderAttributes": {},
-                "dataType": "json",
-                "renderType": "checkbox",
-                "choicesResourceName": null,
-                "choicesRunIf": null,
-                "choices": []
-              },
-              {
-                "type": "field",
-                "name": "Status",
-                "label": "Status",
-                "key": "f901",
-                "defaultValue": "Draft",
-                "defaultResourceName": null,
-                "visible": true,
-                "enabled": true,
+                "enabled": false,
                 "required": false,
                 "requiredMessage": null,
                 "omitWhenHidden": null,
@@ -352,32 +354,15 @@
           }
         ],
         "events": [],
-        "name": "Page 1",
+        "name": "Execution",
         "renderType": "submittable",
         "type": "page"
       }
     ],
-    "securityPolicies": [
-      {
-        "endpoint": "Display",
-        "name": "Everyone"
-      },
-      {
-        "endpoint": "Modification",
-        "name": "Admins"
-      },
-      {
-        "endpoint": "Submission Access",
-        "name": "Submitter - Form Owners - Observers"
-      },
-      {
-        "endpoint": "Submission Modification",
-        "name": "Submitter - Form Owners - Observers"
-      }
-    ],
-    "slug": "help",
+    "securityPolicies": [],
+    "slug": "robot-executions",
     "status": "Active",
-    "submissionLabelExpression": "${values('How can we help you').length > 97 ? values('How can we help you').substring(0,97)+'...' : values('How can we help you')}",
-    "type": "Utility"
+    "submissionLabelExpression": "${values('Robot Name')} - ${values('Start')}",
+    "type": null
   }
 }

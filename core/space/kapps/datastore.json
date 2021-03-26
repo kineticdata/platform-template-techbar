@@ -1,0 +1,25 @@
+{
+  "afterLogoutPath": null,
+  "attributes": [
+
+  ],
+  "bundlePath": null,
+  "defaultFormConfirmationPage": null,
+  "defaultFormDisplayPage": null,
+  "defaultSubmissionLabelExpression": null,
+  "displayType": "Display Page",
+  "displayValue": null,
+  "fields": [
+
+  ],
+  "indexDefinitions": [
+
+  ],
+  "loginPage": null,
+  "name": "Datastore",
+  "resetPasswordPage": null,
+  "securityPolicies": [
+
+  ],
+  "slug": "datastore"
+}

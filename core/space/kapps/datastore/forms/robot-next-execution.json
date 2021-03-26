@@ -1,11 +1,24 @@
 {
   "form": {
     "anonymous": false,
-    "attributes": [],
+    "attributes": [
+      {
+        "name": "Datastore Configuration",
+        "values": [
+          "[{\"name\":\"handle\",\"label\":\"Handle\",\"type\":\"system\",\"visible\":true,\"filterable\":true},{\"name\":\"label\",\"label\":\"Label\",\"type\":\"system\",\"visible\":true,\"filterable\":true},{\"name\":\"createdAt\",\"label\":\"Created At\",\"type\":\"system\",\"visible\":false,\"filterable\":false},{\"name\":\"createdBy\",\"label\":\"Created By\",\"type\":\"system\",\"visible\":false,\"filterable\":false},{\"name\":\"updatedAt\",\"label\":\"Updated At\",\"type\":\"system\",\"visible\":false,\"filterable\":false},{\"name\":\"updatedBy\",\"label\":\"Updated By\",\"type\":\"system\",\"visible\":false,\"filterable\":false},{\"name\":\"id\",\"label\":\"Id\",\"type\":\"system\",\"visible\":false,\"filterable\":false}]"
+        ]
+      },
+      {
+        "name": "Datastore Hidden",
+        "values": [
+          "True"
+        ]
+      }
+    ],
     "bridgedResources": [],
     "categorizations": [],
     "customHeadContent": null,
-    "description": "",
+    "description": "This form holds the next execution time for a specific schedule",
     "indexDefinitions": [
       {
         "name": "closedBy",
@@ -43,21 +56,21 @@
         "unique": false
       },
       {
-        "name": "values[Comments]",
+        "name": "values[Next Execution]",
         "parts": [
-          "values[Comments]"
+          "values[Next Execution]"
         ],
         "unique": false
       },
       {
-        "name": "values[Scheduler Id]",
+        "name": "values[Robot ID]",
         "parts": [
-          "values[Scheduler Id]"
+          "values[Robot ID]"
         ],
         "unique": false
       }
     ],
-    "name": "General Feedback",
+    "name": "Robot Next Execution",
     "notes": null,
     "pages": [
       {
@@ -67,16 +80,16 @@
         "elements": [
           {
             "type": "field",
-            "name": "Scheduler Id",
-            "label": "Scheduler Id",
-            "key": "f1",
+            "name": "Robot ID",
+            "label": "Robot ID",
+            "key": "f2",
             "defaultValue": null,
             "defaultResourceName": null,
-            "visible": false,
-            "enabled": false,
+            "visible": true,
+            "enabled": true,
             "required": false,
             "requiredMessage": null,
-            "omitWhenHidden": false,
+            "omitWhenHidden": null,
             "pattern": null,
             "constraints": [],
             "events": [],
@@ -87,14 +100,14 @@
           },
           {
             "type": "field",
-            "name": "Comments",
-            "label": "Comments",
-            "key": "f2",
+            "name": "Next Execution",
+            "label": "Next Execution",
+            "key": "f3",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": true,
+            "required": false,
             "requiredMessage": null,
             "omitWhenHidden": null,
             "pattern": null,
@@ -102,42 +115,28 @@
             "events": [],
             "renderAttributes": {},
             "dataType": "string",
-            "renderType": "text",
-            "rows": 4
+            "renderType": "datetime"
           },
           {
-            "type": "section",
-            "renderType": null,
-            "name": "Footer",
-            "title": null,
+            "type": "button",
+            "label": "Submit",
+            "name": "Submit Button",
             "visible": true,
-            "omitWhenHidden": null,
-            "renderAttributes": {
-              "class": "text-right"
-            },
-            "elements": [
-              {
-                "type": "button",
-                "label": "Submit",
-                "name": "Submit Button",
-                "visible": true,
-                "enabled": true,
-                "renderType": "submit-page",
-                "renderAttributes": {}
-              }
-            ]
+            "enabled": true,
+            "renderType": "submit-page",
+            "renderAttributes": {}
           }
         ],
         "events": [],
-        "name": "General Feedback",
+        "name": "Page 1",
         "renderType": "submittable",
         "type": "page"
       }
     ],
     "securityPolicies": [],
-    "slug": "general-feedback",
+    "slug": "robot-next-execution",
     "status": "Active",
-    "submissionLabelExpression": null,
-    "type": "Service"
+    "submissionLabelExpression": "${values('Robot ID')} - ${values('Next Execution')}",
+    "type": null
   }
 }

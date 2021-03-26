@@ -1,7 +1,14 @@
 {
   "form": {
     "anonymous": false,
-    "attributes": [],
+    "attributes": [
+      {
+        "name": "Datastore Hidden",
+        "values": [
+          "True"
+        ]
+      }
+    ],
     "bridgedResources": [],
     "categorizations": [],
     "customHeadContent": null,
@@ -43,42 +50,79 @@
         "unique": false
       },
       {
-        "name": "values[Appointment Id]",
+        "name": "values[HTML Content]",
         "parts": [
-          "values[Appointment Id]"
+          "values[HTML Content]"
         ],
         "unique": false
       },
       {
-        "name": "values[Event Date]",
+        "name": "values[Language]",
         "parts": [
-          "values[Event Date]"
+          "values[Language]"
         ],
         "unique": false
       },
       {
-        "name": "values[Event Type]",
+        "name": "values[Name]",
         "parts": [
-          "values[Event Type]"
+          "values[Name]"
         ],
         "unique": false
       },
       {
-        "name": "values[Experience]",
+        "name": "values[Name],values[Status]:UNIQUE",
         "parts": [
-          "values[Experience]"
+          "values[Name]",
+          "values[Status]"
+        ],
+        "unique": true
+      },
+      {
+        "name": "values[Region]",
+        "parts": [
+          "values[Region]"
         ],
         "unique": false
       },
       {
-        "name": "values[Scheduler Id]",
+        "name": "values[Status]",
         "parts": [
-          "values[Scheduler Id]"
+          "values[Status]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Subject]",
+        "parts": [
+          "values[Subject]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Text Content]",
+        "parts": [
+          "values[Text Content]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Type]",
+        "parts": [
+          "values[Type]"
+        ],
+        "unique": false
+      },
+      {
+        "name": "values[Type],values[Name]",
+        "parts": [
+          "values[Type]",
+          "values[Name]"
         ],
         "unique": false
       }
     ],
-    "name": "Feedback",
+    "name": "Notification Data",
     "notes": null,
     "pages": [
       {
@@ -88,9 +132,9 @@
         "elements": [
           {
             "type": "field",
-            "name": "Experience",
-            "label": null,
-            "key": "f1",
+            "name": "Name",
+            "label": "Name",
+            "key": "f2",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
@@ -103,50 +147,19 @@
             "events": [],
             "renderAttributes": {},
             "dataType": "string",
-            "renderType": "radio",
-            "choicesResourceName": null,
-            "choicesRunIf": null,
-            "choices": [
-              {
-                "label": "Positive",
-                "value": "Positive"
-              },
-              {
-                "label": "Negative",
-                "value": "Negative"
-              }
-            ]
-          },
-          {
-            "type": "field",
-            "name": "Appointment Id",
-            "label": "Appointment Id",
-            "key": "f2",
-            "defaultValue": null,
-            "defaultResourceName": null,
-            "visible": true,
-            "enabled": true,
-            "required": false,
-            "requiredMessage": null,
-            "omitWhenHidden": null,
-            "pattern": null,
-            "constraints": [],
-            "events": [],
-            "renderAttributes": {},
-            "dataType": "string",
             "renderType": "text",
             "rows": 1
           },
           {
             "type": "field",
-            "name": "Scheduler Id",
-            "label": "Scheduler Id",
+            "name": "Status",
+            "label": null,
             "key": "f3",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": false,
+            "required": true,
             "requiredMessage": null,
             "omitWhenHidden": null,
             "pattern": null,
@@ -159,9 +172,9 @@
           },
           {
             "type": "field",
-            "name": "Event Type",
-            "label": "Event Type",
-            "key": "f4",
+            "name": "Language",
+            "label": "Language",
+            "key": "f9",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
@@ -179,14 +192,94 @@
           },
           {
             "type": "field",
-            "name": "Event Date",
-            "label": "Event Date",
+            "name": "Region",
+            "label": "Region",
+            "key": "f8",
+            "defaultValue": null,
+            "defaultResourceName": null,
+            "visible": true,
+            "enabled": true,
+            "required": false,
+            "requiredMessage": null,
+            "omitWhenHidden": null,
+            "pattern": null,
+            "constraints": [],
+            "events": [],
+            "renderAttributes": {},
+            "dataType": "string",
+            "renderType": "text",
+            "rows": 1
+          },
+          {
+            "type": "field",
+            "name": "Subject",
+            "label": null,
+            "key": "f7",
+            "defaultValue": null,
+            "defaultResourceName": null,
+            "visible": true,
+            "enabled": true,
+            "required": "values('Type') !== \"Snippet\"",
+            "requiredMessage": null,
+            "omitWhenHidden": null,
+            "pattern": null,
+            "constraints": [],
+            "events": [],
+            "renderAttributes": {},
+            "dataType": "string",
+            "renderType": "text",
+            "rows": 1
+          },
+          {
+            "type": "field",
+            "name": "HTML Content",
+            "label": "HTML Content",
+            "key": "f6",
+            "defaultValue": null,
+            "defaultResourceName": null,
+            "visible": true,
+            "enabled": true,
+            "required": true,
+            "requiredMessage": null,
+            "omitWhenHidden": null,
+            "pattern": null,
+            "constraints": [],
+            "events": [],
+            "renderAttributes": {},
+            "dataType": "string",
+            "renderType": "text",
+            "rows": 1
+          },
+          {
+            "type": "field",
+            "name": "Text Content",
+            "label": "Text Content",
             "key": "f5",
             "defaultValue": null,
             "defaultResourceName": null,
             "visible": true,
             "enabled": true,
-            "required": false,
+            "required": true,
+            "requiredMessage": null,
+            "omitWhenHidden": null,
+            "pattern": null,
+            "constraints": [],
+            "events": [],
+            "renderAttributes": {},
+            "dataType": "string",
+            "renderType": "text",
+            "rows": 1
+          },
+          {
+            "type": "field",
+            "name": "Type",
+            "label": "Type",
+            "key": "f4",
+            "defaultValue": null,
+            "defaultResourceName": null,
+            "visible": true,
+            "enabled": true,
+            "required": true,
             "requiredMessage": null,
             "omitWhenHidden": null,
             "pattern": null,
@@ -208,7 +301,7 @@
           }
         ],
         "events": [],
-        "name": "Feedback",
+        "name": "One",
         "renderType": "submittable",
         "type": "page"
       }
@@ -216,7 +309,7 @@
     "securityPolicies": [
       {
         "endpoint": "Display",
-        "name": "Tech Bar Display"
+        "name": "Data Admins"
       },
       {
         "endpoint": "Modification",
@@ -224,16 +317,16 @@
       },
       {
         "endpoint": "Submission Access",
-        "name": "Tech Bar Admins - Tech Bar Managers"
+        "name": "Data Admins"
       },
       {
         "endpoint": "Submission Modification",
-        "name": "Admins"
+        "name": "Data Admins"
       }
     ],
-    "slug": "feedback",
+    "slug": "notification-data",
     "status": "Active",
-    "submissionLabelExpression": "${values('Experience')} ${values('Appointment Id')}",
-    "type": "Service"
+    "submissionLabelExpression": "${values('Name')}",
+    "type": null
   }
 }
