@@ -453,9 +453,9 @@ space_sdk.update_space({
 })
 
 # Retrive all Robot Definitions
-space_sdk.find_form_datastore_submissions("robot-definitions").content["submissions"].each do |robot|
+space_sdk.find_form_submissions("datastore", "robot-definitions").content["submissions"].each do |robot|
   # Touch robot to fire the update webhook
-  space_sdk.update_datastore_submission(robot["id"], {})
+  space_sdk.update_submission(robot["id"], {})
 end
 
 # create requesting user that was specified
