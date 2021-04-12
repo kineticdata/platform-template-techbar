@@ -21,7 +21,7 @@
   "securityPolicies": [
     {
       "endpoint": "Display",
-      "name": "Data Admins"
+      "name": "Authenticated Users"
     },
     {
       "endpoint": "Form Creation",
