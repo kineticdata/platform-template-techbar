@@ -1,6 +1,6 @@
 <tree schema_version="1.0">
     <sourceName>Kinetic Request CE</sourceName>
-    <sourceGroup>Datastore Submissions > scheduled-event-action</sourceGroup>
+    <sourceGroup>Submissions > datastore > scheduled-event-action</sourceGroup>
     <type>Tree</type>
     <status>Active</status>
     <taskTree builder_version="" schema_version="1.0" version="">
