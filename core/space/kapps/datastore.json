@@ -21,7 +21,7 @@
   "securityPolicies": [
     {
       "endpoint": "Display",
-      "name": "Authenticated Users"
+      "name": "Admins"
     },
     {
       "endpoint": "Form Creation",
@@ -33,23 +33,23 @@
     },
     {
       "endpoint": "Default Form Display",
-      "name": "Data Admins"
+      "name": "Admins"
     },
     {
       "endpoint": "Default Form Modification",
-      "name": "Data Admins"
+      "name": "Admins"
     },
     {
       "endpoint": "Default Submission Access",
-      "name": "Everyone"
+      "name": "Admins"
     },
     {
       "endpoint": "Default Submission Modification",
-      "name": "Data Admins"
+      "name": "Admins"
     },
     {
       "endpoint": "Submission Support",
-      "name": "Data Admins"
+      "name": "Admins"
     }
   ],
   "slug": "datastore"
