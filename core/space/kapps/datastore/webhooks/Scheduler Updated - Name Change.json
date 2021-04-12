@@ -3,6 +3,6 @@
   "filter": "form('slug') === \"scheduler\" && ( values('Name') !== valuesPrevious('Name') || values('Id') !== valuesPrevious('Id') )",
   "name": "Scheduler Updated - Name Change",
   "type": "Submission",
-  "url": "/app/api/v1/run-tree/Kinetic%20Request%20CE/Datastore%20Submissions%20%3E%20scheduler/Updated-NameChange",
+  "url": "/app/api/v1/run-tree/${space('attribute:Task Source Name')}/Submissions%20%3E%20datastore%20%3E%20${form('slug')}/Updated-NameChange",
   "attributes": null
 }

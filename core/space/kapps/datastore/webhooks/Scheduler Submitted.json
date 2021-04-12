@@ -3,6 +3,6 @@
   "filter": "form('slug') === \"scheduler\"",
   "name": "Scheduler Submitted",
   "type": "Submission",
-  "url": "/app/api/v1/run-tree/Kinetic%20Request%20CE/Datastore%20Submissions%20%3E%20scheduler/Submitted",
+  "url": "/app/api/v1/run-tree/${space('attribute:Task Source Name')}/Submissions%20%3E%20datastore%20%3E%20${form('slug')}/Submitted",
   "attributes": null
 }
