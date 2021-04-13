@@ -103,6 +103,14 @@
       "unique": false
     },
     {
+      "name": "values[Robot ID],values[Status]",
+      "parts": [
+        "values[Robot ID]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
       "name": "values[Robot Name]",
       "parts": [
         "values[Robot Name]"
@@ -335,7 +343,7 @@
               "defaultValue": null,
               "defaultResourceName": null,
               "visible": true,
-              "enabled": true,
+              "enabled": false,
               "required": false,
               "requiredMessage": null,
               "omitWhenHidden": null,
