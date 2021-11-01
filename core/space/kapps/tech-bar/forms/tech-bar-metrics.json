@@ -1,16 +1,91 @@
 {
   "anonymous": false,
-  "attributes": [
-
-  ],
-  "bridgedResources": [
-
-  ],
-  "categorizations": [
-
-  ],
+  "attributes": [],
+  "bridgedResources": [],
+  "categorizations": [],
   "customHeadContent": null,
   "description": "This form holds summarized metric information for the TechBar Kapp.  Data is populated via a Robot, and stored here so dashboards and retrieve and display the information.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Data]",
+      "parts": [
+        "values[Data]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Period Type]",
+      "parts": [
+        "values[Period Type]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Period Type],values[Scheduler Id],values[Period]",
+      "parts": [
+        "values[Period Type]",
+        "values[Scheduler Id]",
+        "values[Period]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Period]",
+      "parts": [
+        "values[Period]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Refresh Data]",
+      "parts": [
+        "values[Refresh Data]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduler Id]",
+      "parts": [
+        "values[Scheduler Id]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Tech Bar Metrics",
   "notes": null,
   "pages": [
@@ -32,14 +107,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "text",
           "rows": 1
@@ -57,14 +127,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "radio",
           "choicesResourceName": null,
@@ -93,14 +158,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "text",
           "rows": 1
@@ -118,14 +178,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "text",
           "rows": 1
@@ -143,14 +198,9 @@
           "requiredMessage": null,
           "omitWhenHidden": null,
           "pattern": null,
-          "constraints": [
-
-          ],
-          "events": [
-
-          ],
-          "renderAttributes": {
-          },
+          "constraints": [],
+          "events": [],
+          "renderAttributes": {},
           "dataType": "string",
           "renderType": "radio",
           "choicesResourceName": null,
@@ -173,13 +223,10 @@
           "visible": true,
           "enabled": true,
           "renderType": "submit-page",
-          "renderAttributes": {
-          }
+          "renderAttributes": {}
         }
       ],
-      "events": [
-
-      ],
+      "events": [],
       "name": "Page 1",
       "renderType": "submittable",
       "type": "page"

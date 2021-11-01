@@ -47,11 +47,247 @@
       "status": "Active"
     }
   ],
-  "categorizations": [
-
-  ],
+  "categorizations": [],
   "customHeadContent": "",
   "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "coreState,values[Requested For]",
+      "parts": [
+        "coreState",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Cancellation Reason Other]",
+      "parts": [
+        "values[Cancellation Reason Other]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Cancellation Reason]",
+      "parts": [
+        "values[Cancellation Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Check-in Time]",
+      "parts": [
+        "values[Check-in Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Details]",
+      "parts": [
+        "values[Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Date]",
+      "parts": [
+        "values[Event Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Duration Actual]",
+      "parts": [
+        "values[Event Duration Actual]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Duration]",
+      "parts": [
+        "values[Event Duration]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Time]",
+      "parts": [
+        "values[Event Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Type]",
+      "parts": [
+        "values[Event Type]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Same Day Appointment]",
+      "parts": [
+        "values[Same Day Appointment]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Schedule For Someone Else]",
+      "parts": [
+        "values[Schedule For Someone Else]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduled Event Id]",
+      "parts": [
+        "values[Scheduled Event Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduler Id]",
+      "parts": [
+        "values[Scheduler Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduler Id],values[Event Date]",
+      "parts": [
+        "values[Scheduler Id]",
+        "values[Event Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduler Id],values[Event Date],values[Status]",
+      "parts": [
+        "values[Scheduler Id]",
+        "values[Event Date]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Start Work Time]",
+      "parts": [
+        "values[Start Work Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Summary]",
+      "parts": [
+        "values[Summary]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Wait Time]",
+      "parts": [
+        "values[Wait Time]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Appointment",
   "notes": null,
   "pages": [
@@ -66,8 +302,7 @@
           "name": "Requested For Info for Other Viewers",
           "text": "<div id=\"requsted-for-info\" class=\"alert alert-info\"></div>",
           "visible": "identity('username') !== values('Requested For') && form('review')",
-          "renderAttributes": {
-          }
+          "renderAttributes": {}
         },
         {
           "type": "section",
@@ -76,8 +311,7 @@
           "title": null,
           "visible": true,
           "omitWhenHidden": null,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "section",
@@ -143,9 +377,7 @@
               "requiredMessage": null,
               "omitWhenHidden": true,
               "pattern": null,
-              "constraints": [
-
-              ],
+              "constraints": [],
               "events": [
                 {
                   "name": "Toggle Requested For Search",
@@ -171,8 +403,7 @@
                   ]
                 }
               ],
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
@@ -203,8 +434,7 @@
           "title": null,
           "visible": true,
           "omitWhenHidden": null,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "section",
@@ -213,8 +443,7 @@
               "title": null,
               "visible": false,
               "omitWhenHidden": true,
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "elements": [
                 {
                   "type": "content",
@@ -222,8 +451,7 @@
                   "name": "Tech Bar Container",
                   "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"tech-bar-container\"></div>",
                   "visible": true,
-                  "renderAttributes": {
-                  }
+                  "renderAttributes": {}
                 }
               ]
             },
@@ -234,8 +462,7 @@
               "title": null,
               "visible": false,
               "omitWhenHidden": true,
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "elements": [
                 {
                   "type": "content",
@@ -243,8 +470,7 @@
                   "name": "Type of Issue Container",
                   "text": "<div data-element-type=\"wrapper\" class=\"form-group required radio\" id=\"issue-container\"></div>",
                   "visible": true,
-                  "renderAttributes": {
-                  }
+                  "renderAttributes": {}
                 }
               ]
             },
@@ -255,8 +481,7 @@
               "title": null,
               "visible": true,
               "omitWhenHidden": null,
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "elements": [
                 {
                   "type": "field",
@@ -271,14 +496,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -296,14 +516,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 3
@@ -317,8 +532,7 @@
               "title": null,
               "visible": false,
               "omitWhenHidden": false,
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "elements": [
                 {
                   "type": "content",
@@ -326,8 +540,7 @@
                   "name": "Scheduler Widget Container",
                   "text": "<div id=\"scheduler-widget-container\">\n  <div class=\"form-group required\">\n    <label class=\"field-label\">Date and Time</label>\n    <div class=\"cards__wrapper cards__wrapper--appt pb-0\">\n      <div class=\"card card--long card--appt\">\n        <i class=\"fa fa-calendar fa-fw card-icon\" style=\"background: rgb(255, 74, 94);\"></i>\n        <div class=\"card-body\">\n          <span class=\"card-subtitle\"><em>${translate('Please select a Type of Issue to pick a date and time.')}</em></span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
                   "visible": true,
-                  "renderAttributes": {
-                  }
+                  "renderAttributes": {}
                 }
               ]
             }
@@ -351,8 +564,7 @@
               "visible": true,
               "enabled": true,
               "renderType": "submit-page",
-              "renderAttributes": {
-              }
+              "renderAttributes": {}
             }
           ]
         },
@@ -363,8 +575,7 @@
           "title": "Hidden System Fields Do Not Delete",
           "visible": false,
           "omitWhenHidden": false,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "field",
@@ -379,14 +590,9 @@
               "requiredMessage": "You must select a user for whom you are scheduling an appointment.",
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -404,14 +610,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -429,14 +630,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -454,14 +650,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -479,14 +670,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -504,21 +690,14 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": [
-
-              ]
+              "choices": []
             },
             {
               "type": "field",
@@ -533,21 +712,14 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": [
-
-              ]
+              "choices": []
             },
             {
               "type": "field",
@@ -562,14 +734,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -587,9 +754,7 @@
               "requiredMessage": "You must select a Tech Bar.",
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
+              "constraints": [],
               "events": [
                 {
                   "name": "Get Types",
@@ -598,8 +763,7 @@
                   "code": "K('field[Event Type]').value('');\nbundle.ext.forms[K('form').slug()].getIssueTypes();"
                 }
               ],
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -617,9 +781,7 @@
               "requiredMessage": "You must select a Type of Issue.",
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
+              "constraints": [],
               "events": [
                 {
                   "name": "Get Appointment Times",
@@ -628,8 +790,7 @@
                   "code": "bundle.ext.forms[K('form').slug()].schedulerWidget();\n"
                 }
               ],
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -647,14 +808,9 @@
               "requiredMessage": "You must select a Date and Time for your appointment.",
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -672,14 +828,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "date"
             },
@@ -696,14 +847,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "time"
             },
@@ -720,14 +866,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -745,14 +886,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -770,14 +906,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -795,14 +926,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -820,14 +946,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -845,14 +966,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -870,14 +986,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -895,14 +1006,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1

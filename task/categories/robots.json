@@ -1,0 +1,14 @@
+{
+    "name": "Robots",
+    "description": "Robots",
+    "type": "Stored",
+    "handlers": [
+  
+    ],
+    "policyRules": [
+  
+    ],
+    "trees": [
+      "routine_kinetic_robot_execution_v2"
+    ]
+  }

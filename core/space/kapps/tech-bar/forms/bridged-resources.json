@@ -1,15 +1,11 @@
 {
   "anonymous": false,
-  "attributes": [
-
-  ],
+  "attributes": [],
   "bridgedResources": [
     {
       "model": "Tech Bar Overview",
       "name": "Tech Bar Appointments Overview",
-      "order": [
-
-      ],
+      "order": [],
       "parameters": [
         {
           "mapping": "${values('Date')}",
@@ -26,9 +22,7 @@
     {
       "model": "Tech Bar Overview",
       "name": "Tech Bar Walk-Ins Overview",
-      "order": [
-
-      ],
+      "order": [],
       "parameters": [
         {
           "mapping": "${values('Date')}",
@@ -43,11 +37,60 @@
       "status": "Active"
     }
   ],
-  "categorizations": [
-
-  ],
+  "categorizations": [],
   "customHeadContent": null,
   "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Date]",
+      "parts": [
+        "values[Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Id]",
+      "parts": [
+        "values[Id]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Bridged Resources",
   "notes": null,
   "pages": [
@@ -63,8 +106,7 @@
           "title": null,
           "visible": true,
           "omitWhenHidden": null,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "field",
@@ -79,14 +121,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -104,31 +141,22 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "date"
             }
           ]
         }
       ],
-      "events": [
-
-      ],
+      "events": [],
       "name": "Bridged Resources",
       "renderType": "submittable",
       "type": "page"
     }
   ],
-  "securityPolicies": [
-
-  ],
+  "securityPolicies": [],
   "slug": "bridged-resources",
   "status": "Active",
   "submissionLabelExpression": null,

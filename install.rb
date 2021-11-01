@@ -239,18 +239,15 @@ space_sdk.update_space({
   "name" => vars["core"]["space_name"],
 })
 
-# import kapp & datastore submissions
+# import submissions
 Dir["#{core_path}/**/*.ndjson"].sort.each do |filename|
-  is_datastore = filename.include?("/datastore/forms/")
   form_slug = filename.match(/forms\/(.+)\/submissions\.ndjson/)[1]
-  kapp_slug = filename.match(/kapps\/(.+)\/forms/)[1] if !is_datastore
+  kapp_slug = filename.match(/kapps\/(.+)\/forms/)[1]
 
   File.readlines(filename).each do |line|
     submission = JSON.parse(line)
     body = { "values" => submission["values"] }
-    is_datastore ?
-      space_sdk.add_datastore_submission(form_slug, body).content :
-      space_sdk.add_submission(kapp_slug, form_slug, body).content
+    space_sdk.add_submission(kapp_slug, form_slug, body).content
   end
 end
 
@@ -456,9 +453,9 @@ space_sdk.update_space({
 })
 
 # Retrive all Robot Definitions
-space_sdk.find_form_datastore_submissions("robot-definitions").content["submissions"].each do |robot|
+space_sdk.find_form_submissions("datastore", "robot-definitions").content["submissions"].each do |robot|
   # Touch robot to fire the update webhook
-  space_sdk.update_datastore_submission(robot["id"], {})
+  space_sdk.update_submission(robot["id"], {})
 end
 
 # create requesting user that was specified

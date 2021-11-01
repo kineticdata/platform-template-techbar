@@ -14,14 +14,260 @@
       ]
     }
   ],
-  "bridgedResources": [
-
-  ],
-  "categorizations": [
-
-  ],
+  "bridgedResources": [],
+  "categorizations": [],
   "customHeadContent": null,
   "description": "Creates a generic task for an individual or team.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual Display Name]",
+      "parts": [
+        "values[Assigned Individual Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual]",
+      "parts": [
+        "values[Assigned Individual]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team Display Name]",
+      "parts": [
+        "values[Assigned Team Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team]",
+      "parts": [
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Cancellation Reason]",
+      "parts": [
+        "values[Cancellation Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Deferral Token]",
+      "parts": [
+        "values[Deferral Token]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Details]",
+      "parts": [
+        "values[Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Due Date]",
+      "parts": [
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Notes]",
+      "parts": [
+        "values[Notes]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Pending Reason]",
+      "parts": [
+        "values[Pending Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Resolution]",
+      "parts": [
+        "values[Resolution]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduled Date]",
+      "parts": [
+        "values[Scheduled Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Summary]",
+      "parts": [
+        "values[Summary]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Adhoc Task",
   "notes": null,
   "pages": [
@@ -37,8 +283,7 @@
           "title": null,
           "visible": true,
           "omitWhenHidden": null,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "section",
@@ -47,8 +292,7 @@
               "title": null,
               "visible": "submission('id') === null",
               "omitWhenHidden": false,
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "elements": [
                 {
                   "type": "field",
@@ -63,14 +307,9 @@
                   "requiredMessage": "Please identify a summary of this task.",
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -88,14 +327,9 @@
                   "requiredMessage": "You must indicate a due date.",
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "datetime"
                 },
@@ -112,14 +346,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 3
@@ -133,8 +362,7 @@
               "title": null,
               "visible": "submission('id') !== null",
               "omitWhenHidden": false,
-              "renderAttributes": {
-              },
+              "renderAttributes": {},
               "elements": [
                 {
                   "type": "field",
@@ -149,14 +377,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "radio",
                   "choicesResourceName": null,
@@ -193,14 +416,9 @@
                   "requiredMessage": "Pending Reason is required when status is set to Pending",
                   "omitWhenHidden": true,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -218,14 +436,9 @@
                   "requiredMessage": "Resolution is required when status is set to Complete",
                   "omitWhenHidden": true,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -243,14 +456,9 @@
                   "requiredMessage": "Cancellation Reason is required when status is set to Cancelled",
                   "omitWhenHidden": true,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -268,14 +476,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 3
@@ -291,8 +494,7 @@
           "title": "",
           "visible": false,
           "omitWhenHidden": false,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "field",
@@ -307,14 +509,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -332,14 +529,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -357,14 +549,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -382,14 +569,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -407,14 +589,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -432,14 +609,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -457,21 +629,14 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": [
-
-              ]
+              "choices": []
             },
             {
               "type": "field",
@@ -486,21 +651,14 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": [
-
-              ]
+              "choices": []
             },
             {
               "type": "field",
@@ -515,31 +673,22 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "datetime"
             }
           ]
         }
       ],
-      "events": [
-
-      ],
+      "events": [],
       "name": "Page One",
       "renderType": "submittable",
       "type": "page"
     }
   ],
-  "securityPolicies": [
-
-  ],
+  "securityPolicies": [],
   "slug": "adhoc-task",
   "status": "Inactive",
   "submissionLabelExpression": "${values('Summary')}",

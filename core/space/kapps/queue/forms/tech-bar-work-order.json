@@ -59,11 +59,364 @@
       "status": "Active"
     }
   ],
-  "categorizations": [
-
-  ],
+  "categorizations": [],
   "customHeadContent": "<style>\n  .modal.show .modal-dialog {\n    transform: translate(0);\n    max-width: 90% !important;\n    max-height: 90% !important;\n    height: 90% !important;\n  }\n  #requests{\n    max-height:620px;\n    overflow-y:auto;\n  }\n  .requests-header {\n    font-size:larger;\n    margin-top:10px;\n  }\n  .appointment {\n    /*margin-top:15px; */\n  }\n  .appointment > div {\n    margin-top:5px;\n  }\n  \n  .appointment .appointment-time-type {\n    font-weight: bold;\n    cursor: pointer;\n  }\n  .appointment .appointment-note, .appointment .appointment-details {\n    display:none;\n  }\n\n</style>\n",
   "description": "Submissions for this form are automatically created as part of workflow.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual Display Name]",
+      "parts": [
+        "values[Assigned Individual Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual]",
+      "parts": [
+        "values[Assigned Individual]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team Display Name]",
+      "parts": [
+        "values[Assigned Team Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team]",
+      "parts": [
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],createdBy",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Cancellation Reason]",
+      "parts": [
+        "values[Cancellation Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Checked In]",
+      "parts": [
+        "values[Checked In]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Customer]",
+      "parts": [
+        "values[Customer]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Deferral Token]",
+      "parts": [
+        "values[Deferral Token]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Details]",
+      "parts": [
+        "values[Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Due Date]",
+      "parts": [
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Date]",
+      "parts": [
+        "values[Event Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Event Time]",
+      "parts": [
+        "values[Event Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Notes Internal]",
+      "parts": [
+        "values[Notes Internal]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Notes for Customer]",
+      "parts": [
+        "values[Notes for Customer]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Originating Id]",
+      "parts": [
+        "values[Originating Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Originating System]",
+      "parts": [
+        "values[Originating System]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Originating Url]",
+      "parts": [
+        "values[Originating Url]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Pending Reason]",
+      "parts": [
+        "values[Pending Reason]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Request Details]",
+      "parts": [
+        "values[Request Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Request Summary]",
+      "parts": [
+        "values[Request Summary]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Resolution]",
+      "parts": [
+        "values[Resolution]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduled At]",
+      "parts": [
+        "values[Scheduled At]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Summary]",
+      "parts": [
+        "values[Summary]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[System Input]",
+      "parts": [
+        "values[System Input]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Type]",
+      "parts": [
+        "values[Type]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Walk In]",
+      "parts": [
+        "values[Walk In]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Work Started At]",
+      "parts": [
+        "values[Work Started At]"
+      ],
+      "unique": false
+    }
+  ],
   "name": "Tech Bar Work Order",
   "notes": null,
   "pages": [
@@ -107,14 +460,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -132,14 +480,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -157,14 +500,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 1
@@ -182,14 +520,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 2
@@ -201,8 +534,7 @@
                   "title": null,
                   "visible": true,
                   "omitWhenHidden": null,
-                  "renderAttributes": {
-                  },
+                  "renderAttributes": {},
                   "elements": [
                     {
                       "type": "field",
@@ -217,14 +549,9 @@
                       "requiredMessage": "A valid status must be set.",
                       "omitWhenHidden": null,
                       "pattern": null,
-                      "constraints": [
-
-                      ],
-                      "events": [
-
-                      ],
-                      "renderAttributes": {
-                      },
+                      "constraints": [],
+                      "events": [],
+                      "renderAttributes": {},
                       "dataType": "string",
                       "renderType": "radio",
                       "choicesResourceName": null,
@@ -261,14 +588,9 @@
                       "requiredMessage": "Pending Reason is required when status is set to Pending",
                       "omitWhenHidden": true,
                       "pattern": null,
-                      "constraints": [
-
-                      ],
-                      "events": [
-
-                      ],
-                      "renderAttributes": {
-                      },
+                      "constraints": [],
+                      "events": [],
+                      "renderAttributes": {},
                       "dataType": "string",
                       "renderType": "text",
                       "rows": 1
@@ -286,14 +608,9 @@
                       "requiredMessage": "Resolution is required when status is set to Complete",
                       "omitWhenHidden": true,
                       "pattern": null,
-                      "constraints": [
-
-                      ],
-                      "events": [
-
-                      ],
-                      "renderAttributes": {
-                      },
+                      "constraints": [],
+                      "events": [],
+                      "renderAttributes": {},
                       "dataType": "string",
                       "renderType": "text",
                       "rows": 1
@@ -311,14 +628,9 @@
                       "requiredMessage": "Cancellation Reason is required when status is set to Cancelled",
                       "omitWhenHidden": true,
                       "pattern": null,
-                      "constraints": [
-
-                      ],
-                      "events": [
-
-                      ],
-                      "renderAttributes": {
-                      },
+                      "constraints": [],
+                      "events": [],
+                      "renderAttributes": {},
                       "dataType": "string",
                       "renderType": "text",
                       "rows": 1
@@ -338,14 +650,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 3
@@ -363,14 +670,9 @@
                   "requiredMessage": null,
                   "omitWhenHidden": null,
                   "pattern": null,
-                  "constraints": [
-
-                  ],
-                  "events": [
-
-                  ],
-                  "renderAttributes": {
-                  },
+                  "constraints": [],
+                  "events": [],
+                  "renderAttributes": {},
                   "dataType": "string",
                   "renderType": "text",
                   "rows": 3
@@ -394,8 +696,7 @@
                   "name": "Requesters Other Requests",
                   "text": "<h4>Users Other Requests</h4>\n<div id=\"requests\">\n  <div class=\"\">Retriving list...</div>\n</div>",
                   "visible": true,
-                  "renderAttributes": {
-                  }
+                  "renderAttributes": {}
                 }
               ]
             }
@@ -408,8 +709,7 @@
           "title": "",
           "visible": false,
           "omitWhenHidden": false,
-          "renderAttributes": {
-          },
+          "renderAttributes": {},
           "elements": [
             {
               "type": "field",
@@ -424,14 +724,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -449,14 +744,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -474,14 +764,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -499,14 +784,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -524,14 +804,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -549,14 +824,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -574,14 +844,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -599,14 +864,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 2
@@ -624,14 +884,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "datetime"
             },
@@ -648,21 +903,14 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": [
-
-              ]
+              "choices": []
             },
             {
               "type": "field",
@@ -677,21 +925,14 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "json",
               "renderType": "checkbox",
               "choicesResourceName": null,
               "choicesRunIf": null,
-              "choices": [
-
-              ]
+              "choices": []
             },
             {
               "type": "field",
@@ -706,14 +947,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -731,14 +967,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -756,14 +987,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -781,14 +1007,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -806,14 +1027,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "datetime"
             },
@@ -830,14 +1046,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "date"
             },
@@ -854,14 +1065,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -879,14 +1085,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -904,14 +1105,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -929,14 +1125,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "datetime"
             },
@@ -953,14 +1144,9 @@
               "requiredMessage": null,
               "omitWhenHidden": null,
               "pattern": null,
-              "constraints": [
-
-              ],
-              "events": [
-
-              ],
-              "renderAttributes": {
-              },
+              "constraints": [],
+              "events": [],
+              "renderAttributes": {},
               "dataType": "string",
               "renderType": "text",
               "rows": 1
@@ -981,9 +1167,7 @@
       "type": "page"
     }
   ],
-  "securityPolicies": [
-
-  ],
+  "securityPolicies": [],
   "slug": "tech-bar-work-order",
   "status": "Active",
   "submissionLabelExpression": "${values('Checked In') === \"Checked In\"  ? \"** Checked In **  \" : \"\"}${values('Walk In') === \"Walk In\"  ? \"** Walk In **  \" : \"\"}${values('Summary')}",
