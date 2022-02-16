@@ -65,6 +65,22 @@
       "unique": false
     },
     {
+      "name": "values[Scheduler Id],values[Period]",
+      "parts": [
+        "values[Scheduler Id]",
+        "values[Period]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Scheduler Id],values[Refresh Data]",
+      "parts": [
+        "values[Scheduler Id]",
+        "values[Refresh Data]"
+      ],
+      "unique": false
+    },
+    {
       "name": "values[Period]",
       "parts": [
         "values[Period]"

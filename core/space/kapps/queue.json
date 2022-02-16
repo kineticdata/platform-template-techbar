@@ -252,6 +252,135 @@
         "createdBy"
       ],
       "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual],values[Assigned Team],values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Individual]",
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team],values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Assigned Team]",
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy,values[Due Date]",
+      "parts": [
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy,values[Due Date]",
+      "parts": [
+        "values[Status]",
+        "createdBy",
+        "values[Due Date]"
+      ],
+      "unique": false
     }
   ],
   "loginPage": "",
