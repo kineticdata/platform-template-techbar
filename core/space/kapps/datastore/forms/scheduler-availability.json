@@ -276,5 +276,5 @@
   "slug": "scheduler-availability",
   "status": "Active",
   "submissionLabelExpression": "${values('Scheduler Id')} ${values('Day')} ${values('Slots')}",
-  "type": null
+  "type": "Datastore"
 }

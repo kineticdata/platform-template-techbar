@@ -201,5 +201,5 @@
   "slug": "tech-bar-settings",
   "status": "Active",
   "submissionLabelExpression": null,
-  "type": null
+  "type": "Datastore"
 }

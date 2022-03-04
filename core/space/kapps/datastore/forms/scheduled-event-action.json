@@ -204,5 +204,5 @@
   "slug": "scheduled-event-action",
   "status": "Active",
   "submissionLabelExpression": "${values('Scheduled Event Id')} ${values('Request Id')}",
-  "type": null
+  "type": "Datastore"
 }

@@ -230,5 +230,5 @@
   "slug": "notification-template-dates",
   "status": "Active",
   "submissionLabelExpression": "${values('Name')}",
-  "type": null
+  "type": "Datastore"
 }

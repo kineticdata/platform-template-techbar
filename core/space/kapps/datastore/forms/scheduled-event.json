@@ -355,5 +355,5 @@
   "slug": "scheduled-event",
   "status": "Active",
   "submissionLabelExpression": "${values('Event Type')} ${values('Date')} ${values('Time')} ${values('Duration')} ",
-  "type": null
+  "type": "Datastore"
 }

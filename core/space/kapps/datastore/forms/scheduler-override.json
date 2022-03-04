@@ -244,5 +244,5 @@
   "slug": "scheduler-override",
   "status": "Active",
   "submissionLabelExpression": "${values('Scheduler Id')} ${values('Date')}",
-  "type": null
+  "type": "Datastore"
 }

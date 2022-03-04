@@ -189,5 +189,5 @@
   "slug": "search-history",
   "status": "Active",
   "submissionLabelExpression": null,
-  "type": null
+  "type": "Datastore"
 }

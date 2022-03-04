@@ -288,5 +288,5 @@
   "slug": "alerts",
   "status": "Active",
   "submissionLabelExpression": "${values('Title')}",
-  "type": null
+  "type": "Datastore"
 }

@@ -303,5 +303,5 @@
   "slug": "scheduler-config",
   "status": "Active",
   "submissionLabelExpression": "${values('Scheduler Id')} ${values('Event Type')}",
-  "type": null
+  "type": "Datastore"
 }

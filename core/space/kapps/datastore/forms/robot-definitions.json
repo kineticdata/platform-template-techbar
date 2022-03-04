@@ -2575,5 +2575,5 @@
   "slug": "robot-definitions",
   "status": "Active",
   "submissionLabelExpression": "${values('Robot Name')} - ${values('Start Date')}",
-  "type": null
+  "type": "Datastore"
 }

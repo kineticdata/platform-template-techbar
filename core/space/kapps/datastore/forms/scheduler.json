@@ -687,5 +687,5 @@
   "slug": "scheduler",
   "status": "Active",
   "submissionLabelExpression": "${values('Name')}",
-  "type": null
+  "type": "Datastore"
 }

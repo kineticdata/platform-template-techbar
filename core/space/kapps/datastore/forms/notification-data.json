@@ -326,5 +326,5 @@
   "slug": "notification-data",
   "status": "Active",
   "submissionLabelExpression": "${values('Name')}",
-  "type": null
+  "type": "Datastore"
 }

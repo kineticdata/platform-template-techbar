@@ -416,5 +416,5 @@
   "slug": "actions",
   "status": "Active",
   "submissionLabelExpression": "${values('Type')} ${values('Operation')} ${values('Action')}",
-  "type": null
+  "type": "Datastore"
 }
