@@ -70,15 +70,15 @@
           "structureField": "${fields('values[Id]')}"
         }
       ],
-      "bridgeSlug": "kinetic-core",
+      "bridgeSlug": "kinetic-platform",
       "name": "Datastore - Scheduler",
       "qualifications": [
         {
           "name": "Active by Type",
-          "query": "formSlug=scheduler&limit=1000&index=values[Status],values[Type]&q=values[Status]=\"Active\" AND values[Type]=\"${parameters('Type')}\""
+          "query": "limit=1000&q=values[Status]=\"Active\" AND values[Type]=\"${parameters('Type')}\""
         }
       ],
-      "structure": "Datastore Submissions"
+      "structure": "Submissions > datastore > scheduler"
     }
   ],
   "name": "Datastore - Scheduler",

@@ -70,15 +70,15 @@
           "structureField": "${fields('id')}"
         }
       ],
-      "bridgeSlug": "kinetic-core",
+      "bridgeSlug": "kinetic-platform",
       "name": "Queue Submissions",
       "qualifications": [
         {
           "name": "By Requested For",
-          "query": "kappSlug=queue&limit=1000&q=values[Requested For]=\"${parameters('Requested For')}\""
+          "query": "limit=1000&q=values[Requested For]=\"${parameters('Requested For')}\""
         }
       ],
-      "structure": "Submissions"
+      "structure": "Submissions > queue"
     }
   ],
   "name": "Queue Submissions",
