@@ -1,0 +1,44 @@
+{
+  "activeMappingName": "Tech Bar Appointments",
+  "attributes": [
+    {
+      "name": "Status"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Status",
+          "structureField": "${fields('values[Status]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Tech Bar Appointments",
+      "qualifications": [
+        {
+          "name": "Appointments Overview",
+          "query": "limit=1000&q=values[Scheduler Id]=\"${parameters('Scheduler Id')}\" AND values[Event Date]=\"${parameters('Event Date')}\" AND values[Status]=\"Checked In\""
+        }
+      ],
+      "structure": "Submissions > tech-bar > appointment"
+    }
+  ],
+  "name": "Tech Bar Appointments",
+  "qualifications": [
+    {
+      "name": "Appointments Overview",
+      "parameters": [
+        {
+          "name": "Event Date"
+        },
+        {
+          "name": "Scheduler Id"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}
