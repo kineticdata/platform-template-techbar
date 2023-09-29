@@ -54,7 +54,7 @@
       "qualifications": [
         {
           "name": "Active by Scheduler Id",
-          "query": "limit=1000&index=values[Status],values[Scheduler Id]&q=values[Status]=\"Active\" AND values[Scheduler Id]=\"${parameters('Scheduler Id')}\""
+          "query": "limit=1000&q=values[Status]=\"Active\" AND values[Scheduler Id]=\"${parameters('Scheduler Id')}\""
         }
       ],
       "structure": "Submissions > datastore > scheduler-config"
