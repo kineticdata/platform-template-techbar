@@ -3,7 +3,7 @@
   "attributes": [],
   "bridgedResources": [
     {
-      "model": "Tech Bar Overview",
+      "model": "Tech Bar Appointments",
       "name": "Tech Bar Appointments Overview",
       "order": [],
       "parameters": [
@@ -20,7 +20,7 @@
       "status": "Active"
     },
     {
-      "model": "Tech Bar Overview",
+      "model": "Tech Bar Walk-Ins",
       "name": "Tech Bar Walk-Ins Overview",
       "order": [],
       "parameters": [

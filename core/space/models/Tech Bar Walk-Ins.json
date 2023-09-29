@@ -1,0 +1,44 @@
+{
+  "activeMappingName": "Tech Bar Walk-Ins",
+  "attributes": [
+    {
+      "name": "Status"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Status",
+          "structureField": "${fields('values[Status]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Tech Bar Walk-Ins",
+      "qualifications": [
+        {
+          "name": "Walk-ins Overview",
+          "query": "limit=1000&q=values[Scheduler Id]=\"${parameters('Scheduler Id')}\" AND values[Date]=\"${parameters('Event Date')}\" AND values[Status]=\"Checked In\""
+        }
+      ],
+      "structure": "Submissions > tech-bar > walk-in"
+    }
+  ],
+  "name": "Tech Bar Walk-Ins",
+  "qualifications": [
+    {
+      "name": "Walk-ins Overview",
+      "parameters": [
+        {
+          "name": "Event Date"
+        },
+        {
+          "name": "Scheduler Id"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}
