@@ -19,12 +19,7 @@
       ]
     }
   ],
-  "bundlePath": null,
-  "defaultFormConfirmationPage": null,
-  "defaultFormDisplayPage": null,
   "defaultSubmissionLabelExpression": null,
-  "displayType": "Display Page",
-  "displayValue": null,
   "fields": [
     {
       "name": "Assigned Individual",

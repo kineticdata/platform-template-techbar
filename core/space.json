@@ -140,14 +140,14 @@
       ]
     }
   ],
-  "bundlePath": "",
+  "bundlePath": null,
   "customTranslationContexts": [
 
   ],
   "defaultLocale": "en",
   "defaultTimezone": "America/Chicago",
-  "displayType": "Single Page App",
-  "displayValue": "https://s3.amazonaws.com/kinops.io/bundles/default/releases/5.x.x/index.html",
+  "displayType": "Platform",
+  "displayValue": "",
   "enabledLocales": [
     "en"
   ],
